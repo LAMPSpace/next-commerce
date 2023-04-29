@@ -12,6 +12,15 @@ services:
       WWWUSER: '${WWWUSER:-1000}'
     networks:
       - next-network
-
+  storefront:
+    image: ghcr.io/lampspace/next-commerce-storefront:latest
+    container_name: storefront-service
+    ports:
+      - "3000:3000"
+  backoffice:
+    image: ghcr.io/lampspace/next-commerce-backoffice:latest
+    container_name: backoffice-service
+    ports:
+      - "3001:3000"
 networks:
   next-network:
