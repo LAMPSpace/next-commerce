@@ -2,12 +2,7 @@ version: '3.7'
 
 services:
   api:
-    build:
-      context: ./api
-      dockerfile: Dockerfile
-      args:
-        WWWGROUP: '${WWWGROUP:-1000}'
-    image: api-service
+    image: ghcr.io/lampspace/next-commerce-api:latest
     container_name: api-service
     ports:
       - "8000:80"
@@ -19,4 +14,4 @@ services:
       - next-network
 
 networks:
-  backoffice-network:
+  next-network:

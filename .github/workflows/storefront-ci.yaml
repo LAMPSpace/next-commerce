@@ -1,0 +1,41 @@
+name: Storefront CI
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'storefront/**'
+      - '.github/workflows/storefront-ci.yaml'
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm ci
+        working-directory: storefront
+      - run: npm run build
+        working-directory: storefront
+      - run: npm run lint
+        working-directory: storefront
+      - run: npx prettier --check .
+        working-directory: storefront 
+      - name: Log in to the Container registry
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.TOKEN }}
+      - name: Build and push Docker images
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: docker/build-push-action@v3
+        with:
+          context: ./storefront
+          push: true
+          tags: ghcr.io/lampspace/next-commerce-storefront:latest
