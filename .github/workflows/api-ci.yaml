@@ -22,13 +22,17 @@ jobs:
           php-version: '8.1'
           extensions: mbstring, zip, pcntl, pdo_mysql
       - name: Install dependencies
-        run: cd api && composer install --prefer-dist --no-progress --no-interaction
+        run: composer install --prefer-dist --no-progress --no-interaction
+        working-directory: api
       - name: Copy .env
-        run: cd api && cp .env.example .env
+        run: cp .env.example .env
+        working-directory: api
       - name: Generate key
-        run: cd api && php artisan key:generate
+        run: php artisan key:generate
+        working-directory: api
       - name: Run Tests
-        run: cd api && vendor/bin/phpunit
+        run: vendor/bin/phpunit
+        working-directory: api
       - name: Log in to the Container registry
         if: ${{ github.ref == 'refs/heads/master' }}
         uses: docker/login-action@v2

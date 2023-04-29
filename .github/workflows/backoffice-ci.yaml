@@ -19,6 +19,8 @@ jobs:
           node-version: 16
       - run: npm ci
         working-directory: backoffice
+      - run: cp .env.example .env
+        working-directory: backoffice
       - run: npm run build
         working-directory: backoffice
       - name: Log in to the Container registry
