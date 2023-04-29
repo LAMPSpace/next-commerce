@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    name: API Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,3 +29,21 @@ jobs:
         run: cd api && php artisan key:generate
       - name: Run Tests
         run: cd api && vendor/bin/phpunit
+  publish:
+    name: API Docker Publish
+    needs: build
+    runs-on: ubuntu-latest
+      - name: Log in to the Container registry
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.TOKEN }}
+      - name: Build and push Docker images
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: docker/build-push-action@v3
+        with:
+          context: ./api
+          push: true
+          tags: ghcr.io/LAMPSpace/next-commerce-api:latest
