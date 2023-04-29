@@ -22,5 +22,9 @@ jobs:
           extensions: mbstring, zip, pcntl, pdo_mysql
       - name: Install dependencies
         run: cd api && composer install --prefer-dist --no-progress --no-interaction
+      - name: Copy .env
+        run: cd api && cp .env.example .env
+      - name: Generate key
+        run: cd api && php artisan key:generate
       - name: Run Tests
         run: cd api && vendor/bin/phpunit
