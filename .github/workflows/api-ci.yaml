@@ -1,0 +1,38 @@
+name: API CI
+
+on push:
+  branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - context: ./api
+      - uses: actions/checkout@v3
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          extensions: mbstring, zip, pdo_mysql
+      - name: Copy .env
+        run: cp .env.example .env
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --no-progress --prefer-dist
+      - name: Generate key
+        run: php artisan key:generate
+      - name: Run tests
+        run: php artisan test
+      - name: Log in to the Container registry
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and push Docker images
+        if: ${{ github.ref == 'refs/heads/master' }}
+        uses: docker/build-push-action@v3
+        with:
+          context: ./api
+          push: true
+          tags: ghcr.io/lampspace/next-commerce-api:latest
