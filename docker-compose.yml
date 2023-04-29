@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+      args:
+        WWWGROUP: '${WWWGROUP:-1000}'
+    image: api-service
+    container_name: api-service
+    ports:
+      - "8000:80"
+    volumes:
+      - ./api:/var/www/html
+    environment:
+      WWWUSER: '${WWWUSER:-1000}'
+    networks:
+      - next-network
+
+networks:
+  backoffice-network:
