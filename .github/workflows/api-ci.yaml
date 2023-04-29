@@ -23,4 +23,4 @@ jobs:
       - name: Install dependencies
         run: cd api && composer install --prefer-dist --no-progress --no-interaction
       - name: Run Tests
-        run: api/vendor/bin/phpunit
+        run: vendor/bin/phpunit
