@@ -47,4 +47,4 @@ jobs:
         with:
           context: ./api
           push: true
-          tags: ghcr.io/LAMPSpace/next-commerce-api:latest
+          tags: ghcr.io/lampspace/next-commerce-api:latest
