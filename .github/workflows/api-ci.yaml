@@ -21,6 +21,6 @@ jobs:
           php-version: '8.1'
           extensions: mbstring, zip, pcntl, pdo_mysql
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress --no-interaction
+        run: cd api && composer install --prefer-dist --no-progress --no-interaction
       - name: Run Tests
-        run: vendor/bin/phpunit
+        run: api/vendor/bin/phpunit
