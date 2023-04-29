@@ -2,22 +2,24 @@ name: API CI
 
 on push:
   branches: [master]
+  paths:
+    - 'api/**'
+    - '.github/workflows/api-ci.yaml'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.1'
-          extensions: mbstring, zip, pdo_mysql
-      - name: Copy .env
-        run: cp .env.example .env
-      - name: Install Composer dependencies
-        run: composer install --no-interaction --no-progress --prefer-dist
-      - name: Generate key
-        run: php artisan key:generate
-      - name: Run tests
-        run: php artisan test
+          extensions: mbstring, zip, pcntl, pdo_mysql
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-interaction
+      - name: Run Tests
+        run: vendor/bin/phpunit
