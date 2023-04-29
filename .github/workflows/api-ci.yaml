@@ -45,6 +45,7 @@ jobs:
         if: ${{ github.ref == 'refs/heads/master' }}
         uses: docker/build-push-action@v3
         with:
-          context: ./api
+          context: .
+          file: ./api/Dockerfile
           push: true
           tags: ghcr.io/lampspace/next-commerce-api:latest
