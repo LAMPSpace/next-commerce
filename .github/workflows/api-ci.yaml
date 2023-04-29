@@ -1,10 +1,11 @@
 name: API CI
 
-on push:
-  branches: [master]
-  paths:
-    - 'api/**'
-    - '.github/workflows/api-ci.yaml'
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'api/**'
+      - '.github/workflows/api-ci.yaml'
 
 jobs:
   build:
