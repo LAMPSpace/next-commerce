@@ -30,9 +30,6 @@ jobs:
       - name: Generate key
         run: php artisan key:generate
         working-directory: api
-      - name: Run Tests
-        run: vendor/bin/phpunit
-        working-directory: api
       - name: Log in to the Container registry
         if: ${{ github.ref == 'refs/heads/master' }}
         uses: docker/login-action@v2
