@@ -8,16 +8,20 @@ services:
       - "8000:80"
     volumes:
       - ./api:/var/www/html
+    networks:
+      - next-commerce-network
+    environment:
+      WWWUSER: '${WWWUSER:-1000}'
   storefront:
     image: ghcr.io/lampspace/next-commerce-storefront:latest
     container_name: storefront-service
     ports:
-      - "80:3000"
+      - "5000:3000"
   backoffice:
     image: ghcr.io/lampspace/next-commerce-backoffice:latest
     container_name: backoffice-service
     ports:
-      - "5000:3000"
+      - "5001:3000"
   postgres:
     image: debezium/postgres:15-alpine
     ports:
@@ -29,5 +33,7 @@ services:
       POSTGRES_DB: next_commerce
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
+networks:
+  next-commerce-network:
 volumes:
   postgres:
