@@ -29,6 +29,8 @@ services:
     volumes:
       - postgres:/var/lib/postgresql/data
     command: postgres -c 'max_connections=500'
+    networks:
+      - next-commerce-network
     environment:
       POSTGRES_DB: next_commerce
       POSTGRES_USER: admin
