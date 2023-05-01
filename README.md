@@ -1,6 +1,9 @@
 # **Next Commerce**
-Next Commerce is a pet project to learn Next.js and Laravel.
+[![API CI](https://github.com/LAMPSpace/next-commerce/actions/workflows/api-ci.yaml/badge.svg)](https://github.com/LAMPSpace/next-commerce/actions/workflows/api-ci.yaml)
+[![Backoffice CI](https://github.com/LAMPSpace/next-commerce/actions/workflows/backoffice-ci.yaml/badge.svg)](https://github.com/LAMPSpace/next-commerce/actions/workflows/backoffice-ci.yaml)
+[![Storefront CI](https://github.com/LAMPSpace/next-commerce/actions/workflows/storefront-ci.yaml/badge.svg)](https://github.com/LAMPSpace/next-commerce/actions/workflows/storefront-ci.yaml)
 
+Next Commerce is a pet project to learn Next.js and Laravel.
 ## Getting Started
 ### Prerequisites
 - [Docker](https://www.docker.com/)
