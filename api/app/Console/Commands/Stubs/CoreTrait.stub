@@ -1,0 +1,8 @@
+<?php
+
+namespace App\{namespace};
+
+trait {name}
+{
+    //Type your code here
+}
