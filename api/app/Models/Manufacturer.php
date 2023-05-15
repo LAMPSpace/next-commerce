@@ -26,4 +26,44 @@ class Manufacturer extends BaseModel
         'address',
         'status'
     ];
+
+    protected $sortFields = [
+        'name',
+        'uuid',
+        'description',
+        'display'
+    ];
+
+    protected $filterFields = [
+        'status',
+        'name',
+        'discount_uuid'
+    ];
+
+    protected $searchFields = [
+        'name',
+        'description'
+    ];
+
+    protected $stringFields = [
+        'name',
+        'description',
+        'logo',
+        'phone_number',
+        'email',
+        'address'
+    ];
+
+    protected $customSorts = [
+        'display' => [
+            [
+                'sort-by' => 'status',
+                'sort' => 'asc'
+            ],
+            [
+                'sort-by' => 'name',
+                'sort' => 'asc'
+            ],
+        ]
+    ];
 }
