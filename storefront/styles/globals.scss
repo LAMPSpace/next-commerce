@@ -1,0 +1,23 @@
+body {
+    .header {}
+
+    .body {
+        max-width: none;
+        min-height: 100vh;
+
+        .container {
+            max-width: none;
+        }
+    }
+
+    .footer {
+        min-height: 300px;
+        background-color: black;
+        color: white;
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+}
