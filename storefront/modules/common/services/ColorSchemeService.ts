@@ -12,12 +12,15 @@ const lightTheme: ColorSchemeModel = {
   orange: '#fd7e14',
   yellow: '#ffc107',
   cyan: '#17a2b8',
-  black: '#000000'
+  foreground: '#000000',
+  background: '#ffffff',
+  black: '#000000',
+  white: '#ffffff'
 }
 
 const darkTheme: ColorSchemeModel = {
   primary: '#b5e1f7',
-  primaryLight: '#b5e1f7',
+  primaryLight: '#34c8e0',
   secondary: '#757575',
   success: '#28a745',
   warning: '#ffc107',
@@ -27,7 +30,10 @@ const darkTheme: ColorSchemeModel = {
   orange: '#fd7e14',
   yellow: '#ffc107',
   cyan: '#17a2b8',
-  black: '#000000'
+  background: '#000000',
+  foreground: '#ffffff',
+  black: '#000000',
+  white: '#ffffff'
 }
 
 const themes: ColorSchemes = {
@@ -41,7 +47,13 @@ const themes: ColorSchemes = {
 //   return themes[mode][color];
 // }
 
+const theme: string = "light";
+
 export const getColorCode = (color?: string | null): string => {
   let colorName = color ? color : 'black';
-  return themes['light'][colorName];
+  return themes[theme][colorName];
+}
+
+export const getNavbarVariant = () => {
+  return theme === "light" ? "dark" : "light";
 }

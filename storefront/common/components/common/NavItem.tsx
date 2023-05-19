@@ -1,6 +1,6 @@
 import { Nav } from "react-bootstrap";
 import Search from "../Search";
-import { IconLink } from "@/modules/common/components";
+import { IconLink, NestedDropdown } from "@/modules/common/components";
 import { navItems } from "@/common/constants/common";
 
 type Props = {
@@ -19,6 +19,9 @@ const NavItem = ({ name }: Props) => {
             }
             {navItem && navItem.type === 'icon-link' &&
                 <IconLink title={navItem.title} link={navItem.link} />
+            }
+            {navItem && navItem.type === 'nested-dropdown' &&
+                <NestedDropdown title={navItem.title} link={navItem.link} icon={true} />
             }
         </div>
     );

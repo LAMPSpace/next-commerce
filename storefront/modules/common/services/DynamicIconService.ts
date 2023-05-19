@@ -13,7 +13,8 @@ const iconList: IconList = {
     'search': 'FaSearch',
     'orders': 'TbTruckDelivery',
     'stores': 'MdStore',
-    'not-found': 'TbError404'
+    'not-found': 'TbError404',
+    'categories': 'MdCategory'
 }
 
 export const getIconName = (iconName: string): string => {
