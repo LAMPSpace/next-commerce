@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Category;
 
+use App\Http\Controllers\Controller;
 use App\Http\Resources\CategoryCollection;
 use App\Interfaces\Service\CategoryServiceInterface;
 use Illuminate\Http\Request;

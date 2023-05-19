@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Manufacturer;
 
+use App\Http\Controllers\Controller;
 use App\Http\Resources\ManufacturerCollection;
 use App\Interfaces\Service\ManufacturerServiceInterface;
 use Illuminate\Http\Request;
