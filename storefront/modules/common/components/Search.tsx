@@ -1,7 +1,7 @@
 import { Form, InputGroup, Button } from "react-bootstrap";
 import { DynamicIcon } from "@/modules/common/components";
 import { getColorCode } from "@/modules/common/services/ColorSchemeService";
-import { navIconSize } from "../constants/common";
+import { navIconSize } from "../../../common/constants/common";
 
 const Search = () => {
     return (

@@ -1,22 +1,21 @@
 import { useEffect, useState } from "react";
 import { ButtonGroup, Dropdown } from "react-bootstrap";
 import CustomDropdown from "./CustomDropdown";
-import { NestedDropdownModel } from "../models/NestedDropdown";
+import { NestedDropdownModel, NestedDropdownItemModel } from "../models/NestedDropdown";
+import { getNestedDropdownItem } from "../services/NestedDropdownService";
 import { getColorCode } from "../services/ColorSchemeService";
-import { getParentCategories } from "@/modules/catalog/services/CategoryService";
-import { CategoryModel } from "@/modules/catalog/models/Category";
+import { getData } from "@/modules/api/services/apiService";
 import { navIconSize } from "@/common/constants/common";
 import IconText from "@/common/components/common/IconText";
 
+const NestedDropdown = ({ title, link }: NestedDropdownModel) => {
+    const [items, setItems] = useState<NestedDropdownItemModel[]>([]);
 
-const NestedDropdown = ({ title, link, icon }: NestedDropdownModel) => {
-    const [items, setItems] = useState<CategoryModel[]>([]);
+    const nestedDropdownItem = getNestedDropdownItem(title);
 
     useEffect(() => {
-        getParentCategories().then(
-            (data) => {
-                setItems(data.data);
-            }
+        nestedDropdownItem !== null && getData(nestedDropdownItem['resource'], nestedDropdownItem['params']).then(
+            (data) => { setItems(data.data); }
         );
     }, []);
 
@@ -31,8 +30,8 @@ const NestedDropdown = ({ title, link, icon }: NestedDropdownModel) => {
 
                     <Dropdown.Menu style={{ backgroundColor: getColorCode('background') }}>
                         {items.map((item, index) => {
-                            return item['all_children'].length > 0 ? (
-                                <CustomDropdown item={item} key={'nested_dropdown_' + index} />
+                            return item.all_children.length > 0 ? (
+                                <CustomDropdown item={item} drop={'end'} key={'nested_dropdown_' + index} />
                             ) : (
                                 <Dropdown.Item style={{ backgroundColor: getColorCode('background') }} key={'nested_dropdown_' + index}>
                                     <IconText iconName={item.icon} text={item.name} color="foreground" iconSize={navIconSize} justify="start" />
@@ -45,4 +44,5 @@ const NestedDropdown = ({ title, link, icon }: NestedDropdownModel) => {
         </>
     );
 }
+
 export default NestedDropdown;

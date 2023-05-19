@@ -1,5 +1,5 @@
 import DynamicIcon from "./DynamicIcon";
-import IconLink from "./IconLink";
 import NestedDropdown from "./NestedDropdown";
+import CustomDropdown from "./CustomDropdown";
 
-export { DynamicIcon, IconLink, NestedDropdown };
+export { DynamicIcon, NestedDropdown, CustomDropdown };

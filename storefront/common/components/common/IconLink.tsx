@@ -1,10 +1,14 @@
 import Link from "next/link";
-import { IconLinkModel } from "../models/IconLink";
-import { getColorCode } from "../services/ColorSchemeService";
+import { getColorCode } from "@/modules/common/services/ColorSchemeService";
 import { navIconSize } from "@/common/constants/common";
-import IconText from "@/common/components/common/IconText";
+import IconText from "./IconText";
 
-const IconLink = ({ title, link }: IconLinkModel) => {
+type Props = {
+    title: string;
+    link: string;
+}
+
+const IconLink = ({ title, link }: Props) => {
     return (
         <Link className="flex border-none rounded-md px-3 py-2"
             href={link}
