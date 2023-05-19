@@ -19,7 +19,9 @@ class CategoryResource extends JsonResource
             'parent_uuid' => $this->parent_uuid,
             'name' => $this->name,
             'description' => $this->description,
-            'level' => $this->level
+            'icon' => $this->icon,
+            'level' => $this->level,
+            'all_children' => $this->allChildren
         ];
     }
 }

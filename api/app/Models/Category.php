@@ -59,4 +59,16 @@ class Category extends BaseModel
             ],
         ]
     ];
+
+    public function childrenCategories()
+    {
+        return $this->hasMany(Category::class, 'parent_uuid');
+    }
+
+    public function allChildren()
+    {
+        return $this->childrenCategories()->with(['allChildren' => function ($query) {
+            return $query->orderBy('uuid');
+        }]);
+    }
 }
