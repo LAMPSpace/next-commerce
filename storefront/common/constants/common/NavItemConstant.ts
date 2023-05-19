@@ -48,12 +48,10 @@ export const navItems: NavItems = {
         link: '/orders'
     },
     stores: {
-        title: 'stores',
+        title: 'Stores',
         type: 'icon-link',
         link: '/stores'
     }
 }
-
-export const navItemColor = 'white';
 
 export const navIconSize = 20;

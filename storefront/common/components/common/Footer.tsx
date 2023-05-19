@@ -2,10 +2,15 @@ import Link from "next/link";
 import BrandIcon from "./BrandIcon";
 import { DynamicIcon } from "@/modules/common/components";
 import { appName } from "@/common/constants/common";
+import { getColorCode } from "@/modules/common/services/ColorSchemeService";
 
 const Footer = () => {
     return (
-        <div className="footer grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+        <div className="footer grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1"
+            style={{
+                backgroundColor: getColorCode('black'),
+                color: getColorCode('white')
+            }}>
             <div className="flex items-center justify-center">
                 <div className="p-5">
                     <Link href={'/'}>

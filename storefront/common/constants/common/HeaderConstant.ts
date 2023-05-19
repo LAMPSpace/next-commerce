@@ -7,8 +7,8 @@ export const navBarItems: NavBarItem[] = [
     {
         justify: 'start',
         items: [
-            'home',
             'categories',
+            'home',
             'products',
             'about'
         ]

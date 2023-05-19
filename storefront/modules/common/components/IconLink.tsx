@@ -1,21 +1,18 @@
 import Link from "next/link";
-import DynamicIcon from "./DynamicIcon";
 import { IconLinkModel } from "../models/IconLink";
-import { navItemColor, navIconSize } from "@/common/constants/common";
 import { getColorCode } from "../services/ColorSchemeService";
+import { navIconSize } from "@/common/constants/common";
+import IconText from "@/common/components/common/IconText";
 
 const IconLink = ({ title, link }: IconLinkModel) => {
     return (
-        <Link className="flex border-none rounded-md px-3 py-1"
+        <Link className="flex border-none rounded-md px-3 py-2"
             href={link}
             style={{
-                color: navItemColor,
+                color: getColorCode('background'),
                 backgroundColor: getColorCode('primaryLight')
             }}>
-            <div>
-                <DynamicIcon iconName={title.toLowerCase()} iconBackground={false} iconColor={navItemColor} iconSize={navIconSize} />
-                <span className="text-sm">{title}</span>
-            </div>
+            <IconText iconName={title.toLowerCase()} text={title} color="background" iconSize={navIconSize} justify="center" />
         </Link>
     );
 }
