@@ -1,0 +1,13 @@
+<?php
+
+namespace App\{namespace};
+{useRepository}{useImplement}
+
+class {name} extends {extends} {implements}
+{    
+    public function __construct({repository}$repository)
+    {
+        $this->repository = $repository;
+        $this->model = $repository->getModel();
+    }
+}

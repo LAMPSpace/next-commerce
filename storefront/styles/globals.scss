@@ -1,0 +1,18 @@
+body {
+    .body {
+        max-width: none;
+        min-height: 100vh;
+
+        .container {
+            max-width: none;
+        }
+    }
+
+    .footer {
+        min-height: 300px;
+
+        a {
+            text-decoration: none;
+        }
+    }
+}
