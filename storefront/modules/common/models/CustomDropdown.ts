@@ -8,4 +8,5 @@ export type CustomDropdownModel = {
 
 export type CustomDropdownItemModel = {
     item: NestedDropdownItemModel;
+    theme: string;
 }

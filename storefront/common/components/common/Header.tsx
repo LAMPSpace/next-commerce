@@ -1,9 +1,11 @@
 import { Container, Navbar, Nav, Offcanvas } from 'react-bootstrap';
+import { useContext } from 'react';
+import { ThemeContext } from '@/context/ThemeContext';
 import BrandIcon from './BrandIcon';
 import IconLink from './IconLink';
 import Search from '../../../modules/common/components/Search';
 import { NestedDropdown } from "@/modules/common/components";
-import { getColorCode, getNavbarVariant } from "@/modules/common/services/ColorSchemeService";
+import { getColorCode, getVariant } from "@/modules/common/services/ColorSchemeService";
 import { appName, navBarItems, navItems } from '@/common/constants/common';
 
 type Props = {
@@ -33,11 +35,13 @@ const NavItem = ({ name }: Props) => {
 }
 
 const Header = () => {
+    const theme = useContext(ThemeContext);
+
     return (
         <div className="header"
-            style={{ backgroundColor: getColorCode('primary') }}
+            style={{ backgroundColor: getColorCode('primary', theme) }}
         >
-            <Navbar expand={'md'} variant={getNavbarVariant()}>
+            <Navbar expand={'lg'} variant={getVariant(theme)}>
                 <Container fluid>
                     <Navbar.Brand href="/">
                         <BrandIcon iconColor={'background'} iconSize={50} />

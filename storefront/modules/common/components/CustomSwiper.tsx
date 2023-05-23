@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Link from "next/link";
 import SwiperCore, { EffectCoverflow, Pagination, Thumbs } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { ThemeContext } from "@/context/ThemeContext";
 import ImageWrapper from "@/common/components/common/ImageWrapper";
 import { getColorCode } from "../services/ColorSchemeService";
 import { CustomSwiperModel } from "../models/CustomSwiper";
@@ -18,8 +19,8 @@ const CustomSwiper = ({
 }: CustomSwiperModel) => {
     const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null);
     const [activeSlide, setActiveSlide] = useState(0);
-
-    const activeBorder = "2px solid " + getColorCode('primary');
+    const theme = useContext(ThemeContext);
+    const activeBorder = "2px solid " + getColorCode('primary', theme);
 
     return (
         <div className="images-swiper"

@@ -1,8 +1,8 @@
 import { ColorSchemeModel, ColorSchemes } from "../models/ColorScheme";
 
 const lightTheme: ColorSchemeModel = {
-  primary: '#273473',
-  primaryLight: '#365280',
+  primary: '#a6171a',
+  primaryLight: '#db3b3f',
   secondary: '#757575',
   success: '#28a745',
   warning: '#ffc107',
@@ -41,19 +41,11 @@ const themes: ColorSchemes = {
   dark: darkTheme
 }
 
-// const theme: ThemeModel = window.matchMedia('(prefers-color-scheme: dark)').matches ? darkTheme : lightTheme;
-
-// export const getColorCode = (color: string, mode: string): string => {
-//   return themes[mode][color];
-// }
-
-const theme: string = "light";
-
-export const getColorCode = (color?: string | null): string => {
+export const getColorCode = (color?: string | null, theme: string = 'light'): string => {
   let colorName = color ? color : 'black';
   return themes[theme][colorName];
 }
 
-export const getNavbarVariant = () => {
+export const getVariant = (theme: string = 'light') => {
   return theme === "light" ? "dark" : "light";
 }

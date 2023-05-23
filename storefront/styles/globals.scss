@@ -73,7 +73,9 @@ body {
     }
 
     .footer {
-        min-height: 300px;
+        .footer-main {
+            min-height: 300px;
+        }
 
         a {
             text-decoration: none;
