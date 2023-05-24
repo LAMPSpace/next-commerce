@@ -12,6 +12,9 @@ import watch_1 from './watch_1.png';
 import blackfriday_1 from './blackfriday_1.jpg';
 import blackfriday_2 from './blackfriday_2.jpg';
 import blackfriday_3 from './blackfriday_3.jpg';
+import asus_1 from './asus_1.jpg';
+import sony_1 from './sony_1.jpg';
+import watch_2 from './watch_2.jpg';
 import refrigerator_1 from './refrigerator_1.jpg';
 import laptop_1 from './laptop_1.jpg';
 import tv_1 from './tv_1.jpg';
@@ -39,6 +42,9 @@ const listImages: ListImages = {
     xiaomi_5,
     xiaomi_6,
     watch_1,
+    watch_2,
+    sony_1,
+    asus_1
 };
 
 export default listImages;
