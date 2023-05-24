@@ -24,7 +24,7 @@ const Layout = ({ children }: Props) => {
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
                 <Header />
-                <div className="body" style={{
+                <div className="body flex justify-center" style={{
                     backgroundColor: getColorCode('background', theme),
                     color: getColorCode('foreground', theme)
                 }}>
