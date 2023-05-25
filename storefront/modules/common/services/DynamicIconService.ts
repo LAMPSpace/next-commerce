@@ -17,7 +17,8 @@ const iconList: IconList = {
     'categories': 'MdCategory',
     'tooltip': 'IoMdInformationCircle',
     'light': 'MdLightMode',
-    'dark': 'MdDarkMode'
+    'dark': 'MdDarkMode',
+    'right-arrow': 'MdKeyboardDoubleArrowRight'
 }
 
 export const getIconName = (iconName: string): string => {

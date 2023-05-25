@@ -2,7 +2,7 @@ import { ColorSchemeModel, ColorSchemes } from "../models/ColorScheme";
 
 const lightTheme: ColorSchemeModel = {
   primary: '#a6171a',
-  primaryLight: '#db3b3f',
+  primaryLight: '#c92630',
   secondary: '#757575',
   success: '#28a745',
   warning: '#ffc107',
@@ -15,12 +15,13 @@ const lightTheme: ColorSchemeModel = {
   foreground: '#000000',
   background: '#ffffff',
   black: '#000000',
-  white: '#ffffff'
+  white: '#ffffff',
+  transparent: 'transparent'
 }
 
 const darkTheme: ColorSchemeModel = {
-  primary: '#b5e1f7',
-  primaryLight: '#34c8e0',
+  primary: '#eb7583',
+  primaryLight: '#e3464f',
   secondary: '#757575',
   success: '#28a745',
   warning: '#ffc107',
@@ -33,7 +34,8 @@ const darkTheme: ColorSchemeModel = {
   background: '#000000',
   foreground: '#ffffff',
   black: '#000000',
-  white: '#ffffff'
+  white: '#ffffff',
+  transparent: 'transparent'
 }
 
 const themes: ColorSchemes = {

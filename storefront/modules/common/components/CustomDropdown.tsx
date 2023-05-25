@@ -2,13 +2,13 @@ import { ButtonGroup, Dropdown } from "react-bootstrap";
 import { useContext } from "react";
 import { ThemeContext } from "@/context/ThemeContext";
 import { navIconSize } from "@/common/constants/common";
-import IconText from "@/common/components/common/IconText";
+import { IconText } from "@/common/components/common";
 import { CustomDropdownModel, CustomDropdownItemModel } from "../models/CustomDropdown";
 import { getColorCode } from "../services/ColorSchemeService";
 
 const CustomDropdownItem = ({ item, theme }: CustomDropdownItemModel) => {
     return (
-        <div>
+        <div className="col-span-1">
             {item.all_children.length === 0 &&
                 <div className="dropdown-item-button">
                     <button >
@@ -33,7 +33,7 @@ const CustomDropdownItem = ({ item, theme }: CustomDropdownItemModel) => {
     );
 }
 
-const CustomDropdown = ({ item, drop }: CustomDropdownModel) => {
+const CustomDropdown = ({ item, drop = 'end' }: CustomDropdownModel) => {
     const theme = useContext(ThemeContext);
     return (
         <Dropdown as={ButtonGroup} drop={drop} className="w-100">

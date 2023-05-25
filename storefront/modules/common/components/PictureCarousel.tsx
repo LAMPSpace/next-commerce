@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Carousel } from "react-bootstrap";
-import ImageWrapper from "@/common/components/common/ImageWrapper";
+import { ImageWrapper } from "@/common/components/common";
 import { PictureCarouselModel } from "../models/PictureCarousel";
 
 const PictureCarousel = ({ pictures, height, showTitle = false }: PictureCarouselModel) => {

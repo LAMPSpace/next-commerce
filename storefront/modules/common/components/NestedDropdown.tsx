@@ -6,7 +6,7 @@ import CustomDropdown from "./CustomDropdown";
 import { NestedDropdownModel, NestedDropdownItemModel } from "../models/NestedDropdown";
 import { getColorCode } from "../services/ColorSchemeService";
 import { navIconSize } from "@/common/constants/common";
-import IconText from "@/common/components/common/IconText";
+import { IconText } from "@/common/components/common";
 
 const NestedDropdown = ({ title, link }: NestedDropdownModel) => {
     const items: NestedDropdownItemModel[] = useContext<NestedDropdownItemModel[]>(CategoryContext);

@@ -3,7 +3,7 @@ import Link from "next/link";
 import SwiperCore, { EffectCoverflow, Pagination, Thumbs } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { ThemeContext } from "@/context/ThemeContext";
-import ImageWrapper from "@/common/components/common/ImageWrapper";
+import { ImageWrapper } from "@/common/components/common";
 import { getColorCode } from "../services/ColorSchemeService";
 import { CustomSwiperModel } from "../models/CustomSwiper";
 
