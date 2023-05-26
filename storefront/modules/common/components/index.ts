@@ -3,11 +3,13 @@ import NestedDropdown from "./NestedDropdown";
 import CustomDropdown from "./CustomDropdown";
 import CustomSwiper from "./CustomSwiper";
 import PictureCarousel from "./PictureCarousel";
+import MegaMenu from "./MegaMenu";
 
 export {
     DynamicIcon,
     NestedDropdown,
     CustomDropdown,
     CustomSwiper,
-    PictureCarousel
+    PictureCarousel,
+    MegaMenu
 };
