@@ -1,7 +1,9 @@
 import { PictureModel } from "./CustomSwiper"
 
 export type PictureCarouselModel = {
-    height: number;
+    name: string;
+    height: number | string;
+    width?: number | string;
     pictures: PictureModel[];
     showTitle?: boolean;
 }

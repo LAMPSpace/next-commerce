@@ -3,24 +3,25 @@ import { Carousel } from "react-bootstrap";
 import { ImageWrapper } from "@/common/components/common";
 import { PictureCarouselModel } from "../models/PictureCarousel";
 
-const PictureCarousel = ({ pictures, height, showTitle = false }: PictureCarouselModel) => {
+const PictureCarousel = ({ pictures, name, height, width, showTitle = false }: PictureCarouselModel) => {
     return (
-        <Carousel >
-            {pictures.map(picture => {
+        <Carousel className="w-100" style={{ borderRadius: 8, background: 'none' }}>
+            {pictures.map((picture, index) => {
                 return (
-                    <Carousel.Item style={{ height: height }}>
+                    <Carousel.Item style={{ height: height, width: width }}
+                        key={'picture_carousel_item_' + [name.replace(" ", "_").toLowerCase(), index].join("_")}>
                         <div className="flex items-center justify-center"
                             style={{ height: height }}>
                             {picture.link &&
                                 <Link href={picture.link}>
                                     <ImageWrapper
                                         image={picture.image}
-                                        style={{ height: height }} />
+                                        style={{ height: height, width: width, borderRadius: 8 }} />
                                 </Link>}
                             {!picture.link &&
                                 <ImageWrapper
                                     image={picture.image}
-                                    style={{ height: height }} />
+                                    style={{ height: height, width: width, borderRadius: 8 }} />
                             }
                             {showTitle &&
                                 <Carousel.Caption>
