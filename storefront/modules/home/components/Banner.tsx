@@ -24,6 +24,7 @@ const BannerMain = ({ banner }: BannerMainModel) => {
             {banner.content.main.type === "carousel" &&
                 <div className="banner-part flex items-center justify-center">
                     <PictureCarousel
+                        name="banner_main"
                         pictures={banner.content.main.pictures}
                         height={banner.height}
                         showTitle={banner.content.main.showTitle} />

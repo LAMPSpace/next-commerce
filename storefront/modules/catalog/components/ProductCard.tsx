@@ -12,7 +12,7 @@ import Rating from "./Rating";
 const ProductCard = ({ item, height = 500 }: ProductCardModel) => {
     const theme = useContext(ThemeContext);
     return (
-        <div className="col-lg-3 col-md-4 col-sm-6 p-3"
+        <div className="col-lg-3 col-md-6 col-sm-6 col-xs-6 p-3"
             style={{
                 borderRadius: 8,
                 backgroundColor: 'transparent',

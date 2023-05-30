@@ -6,7 +6,7 @@ export type MegaMenuModel = {
     items: NestedDropdownItemModel[];
     height: number;
     grid: GridModel;
-    className: string;
+    className?: string;
 }
 
 export type MegaMenuButtonModel = {
@@ -24,6 +24,7 @@ export type MegaMenuContentModel = {
     theme: string;
     height: number;
     grid: GridModel;
+    className?: string;
 }
 
 export type MegaMenuContentDisplayModel = {

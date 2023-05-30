@@ -44,13 +44,13 @@ const MegaMenuButtonDisplay = ({ item }: MegaMenuButtonDisplayModel) => {
     );
 }
 
-const MegaMenuContent = ({ items, theme, height, grid }: MegaMenuContentModel) => {
+const MegaMenuContent = ({ items, theme, height, grid, className }: MegaMenuContentModel) => {
     const [itemShow, setItemShow] = useState<NestedDropdownItemModel | null>(null);
     const getButtonColor = (item: NestedDropdownItemModel): string => {
         return itemShow && itemShow.uuid === item.uuid ? 'background' : 'transparent';
     }
     return (
-        <div className="row pr-0"
+        <div className={"row pr-0 " + className}
             style={{ position: "absolute", maxWidth: 1536 }}
             onMouseLeave={() => setItemShow(null)}>
             <div className={"col-lg-" + grid.lg + " col-md-" + grid.md + " px-1"}
@@ -156,7 +156,7 @@ const MegaMenu = ({ items, height, grid, className }: MegaMenuModel) => {
                     </>
                 </div>
             </div>
-            <MegaMenuContent items={items} grid={grid} theme={theme} height={height} />
+            <MegaMenuContent items={items} grid={grid} theme={theme} height={height} className={className} />
         </>
     );
 }
