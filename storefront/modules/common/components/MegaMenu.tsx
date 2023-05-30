@@ -51,7 +51,7 @@ const MegaMenuContent = ({ items, theme, height, grid }: MegaMenuContentModel) =
     }
     return (
         <div className="row pr-0"
-            style={{ position: "absolute" }}
+            style={{ position: "absolute", maxWidth: 1536 }}
             onMouseLeave={() => setItemShow(null)}>
             <div className={"col-lg-" + grid.lg + " col-md-" + grid.md + " px-1"}
                 style={{ height: height, zIndex: 100 }}>
