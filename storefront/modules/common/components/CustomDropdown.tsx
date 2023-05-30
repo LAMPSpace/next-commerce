@@ -39,7 +39,7 @@ const CustomDropdownItem = ({ item, theme }: CustomDropdownItemModel) => {
 
 const CustomDropdown = ({ item, drop = 'end' }: CustomDropdownModel) => {
     const theme = useContext(ThemeContext);
-    const [show, setShow] = useState(false);
+    const [show, setShow] = useState<boolean>(false);
 
     return (
         <Dropdown as={ButtonGroup} drop={drop} className="w-100"

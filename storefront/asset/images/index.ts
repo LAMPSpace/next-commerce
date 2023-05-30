@@ -9,6 +9,14 @@ import xiaomi_4 from './xiaomi_4.png';
 import xiaomi_5 from './xiaomi_5.png';
 import xiaomi_6 from './xiaomi_6.png';
 import watch_1 from './watch_1.png';
+import price_tag_1 from './price_tag_1.png';
+import price_tag_2 from './price_tag_2.png';
+import price_tag_3 from './price_tag_3.png';
+import price_tag_4 from './price_tag_4.png';
+import banner_2 from './banner_2.png';
+import banner_3 from './banner_3.png';
+import banner_1 from './banner_1.gif';
+import blackfriday_4 from './blackfriday_4.gif';
 import blackfriday_1 from './blackfriday_1.jpg';
 import blackfriday_2 from './blackfriday_2.jpg';
 import blackfriday_3 from './blackfriday_3.jpg';
@@ -30,6 +38,7 @@ const listImages: ListImages = {
     blackfriday_1,
     blackfriday_2,
     blackfriday_3,
+    blackfriday_4,
     refrigerator_1,
     laptop_1,
     tv_1,
@@ -44,7 +53,14 @@ const listImages: ListImages = {
     watch_1,
     watch_2,
     sony_1,
-    asus_1
+    asus_1,
+    price_tag_1,
+    price_tag_2,
+    price_tag_3,
+    price_tag_4,
+    banner_1,
+    banner_2,
+    banner_3
 };
 
 export default listImages;
