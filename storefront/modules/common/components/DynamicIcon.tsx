@@ -4,7 +4,7 @@ import { IconBaseProps } from "react-icons/lib";
 import { useContext } from "react";
 import { ThemeContext } from "@/context/ThemeContext";
 import { DynamicIconModel } from "../models/DynamicIcon";
-import { getIconBackgroundColor, getIconName } from "../services/DynamicIconService";
+import { getBackgroundColor, getIconName } from "../services/DynamicIconService";
 import { getColorCode } from "../services/ColorSchemeService";
 
 const DynamicIcon = ({ iconName, iconColor, iconSize, iconBackground }: DynamicIconModel) => {
@@ -20,7 +20,7 @@ const DynamicIcon = ({ iconName, iconColor, iconSize, iconBackground }: DynamicI
         <div className="flex items-center justify-center p-1"
             style={{
                 color: getColorCode(iconColor, theme),
-                backgroundColor: iconBackground ? getIconBackgroundColor(iconColor, theme) : 'transparent',
+                backgroundColor: iconBackground ? getBackgroundColor(iconColor, theme) : 'transparent',
                 borderRadius: 8,
             }}>
             <ElementIcon {...iconProps} />

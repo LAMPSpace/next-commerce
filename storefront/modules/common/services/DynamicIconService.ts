@@ -18,13 +18,18 @@ const iconList: IconList = {
     'tooltip': 'IoMdInformationCircle',
     'light': 'MdLightMode',
     'dark': 'MdDarkMode',
-    'right-arrow': 'MdKeyboardDoubleArrowRight'
+    'right-arrow': 'MdKeyboardDoubleArrowRight',
+    'add-to-cart': 'MdOutlineAddShoppingCart',
+    'favorite': 'MdOutlineFavoriteBorder',
+    'star-fill': 'MdStar',
+    'star-outline': 'MdStarOutline',
+    'star-half': 'MdStarHalf'
 }
 
 export const getIconName = (iconName: string): string => {
     return Object.keys(iconList).includes(iconName) ? iconList[iconName] : iconName;
 }
 
-export const getIconBackgroundColor = (color: string | null, theme: string = 'light'): string => {
+export const getBackgroundColor = (color: string | null, theme: string = 'light'): string => {
     return color && color !== null ? getColorCode(color, theme) + backgroundOpacity : 'transparent';
 }
