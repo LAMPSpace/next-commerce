@@ -105,6 +105,7 @@ body {
             &:hover {
                 z-index: 100;
                 box-shadow: 0px 8px 16px 0px lightgray;
+                transform: scale(1.01);
             }
         }
     }

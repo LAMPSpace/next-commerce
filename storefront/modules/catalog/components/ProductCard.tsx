@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import { Card } from "react-bootstrap";
 import { ThemeContext } from "@/context/ThemeContext";
-import { Badge, IconTooltip, ImageWrapper } from "@/common/components/common";
+import { TextBadge, IconTooltip, ImageWrapper } from "@/common/components/common";
 import { getColorCode } from "@/modules/common/services/ColorSchemeService";
 
 import { ProductCardModel } from "../models/ProductCard";
@@ -25,8 +25,9 @@ const ProductCard = ({ item, height = 500 }: ProductCardModel) => {
                 <Card className="product-card" style={{
                     borderRadius: 8,
                     border: '1px solid lightgray',
+                    color: getColorCode('foreground', theme),
                     backgroundColor: getColorCode('background', theme),
-                    height: height
+                    height: height,
                 }}>
                     <ImageWrapper image={item.cover_photo.default} style={{
                         borderRadius: "8px 8px 0px 0px",
@@ -53,7 +54,7 @@ const ProductCard = ({ item, height = 500 }: ProductCardModel) => {
                                 }
                             </div>
                             <div className="flex product-badges py-1">
-                                <Badge content="Freeship" size={12} color="primary" />
+                                <TextBadge content="Freeship" size={12} color="primary" />
                             </div>
                         </div>
                         <div className="flex items-center justify-center product-card-rating">

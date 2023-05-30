@@ -6,6 +6,6 @@ import IconText from "./IconText";
 import ImageWrapper from "./ImageWrapper";
 import Loading from "./Loading";
 import IconTooltip from "./IconTooltip";
-import Badge from "./Badge";
+import TextBadge from "./TextBadge";
 
-export { BrandIcon, Footer, Header, IconLink, IconText, ImageWrapper, Loading, IconTooltip, Badge }
+export { BrandIcon, Footer, Header, IconLink, IconText, ImageWrapper, Loading, IconTooltip, TextBadge }

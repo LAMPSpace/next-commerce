@@ -10,7 +10,7 @@ type Props = {
     badgeBackground?: boolean;
 }
 
-const Badge = ({ content, size, color, badgeBackground = false }: Props) => {
+const TextBadge = ({ content, size, color, badgeBackground = false }: Props) => {
     const theme = useContext(ThemeContext);
     return (
         <span className="truncate" style={{
@@ -24,4 +24,4 @@ const Badge = ({ content, size, color, badgeBackground = false }: Props) => {
     );
 }
 
-export default Badge;
+export default TextBadge;
