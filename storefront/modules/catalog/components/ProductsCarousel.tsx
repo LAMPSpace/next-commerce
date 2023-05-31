@@ -31,11 +31,11 @@ const ProductsCarousel = ({
                     <ImageWrapper image={banner} style={{ width: bannerWidth, height: bannerHeight }} />
                 </div>
             }
-            {title && <div className='p-3'>
+            {title && <div className='py-3'>
                 <div className='text-3xl px-2 font-bold'
                     style={{ color: getColorCode(titleColor, theme) }}>{title}</div>
             </div>}
-            <Carousel className='p-3' style={{
+            <Carousel className='p-2' style={{
                 backgroundColor: 'transparent',
                 borderRadius: 8
             }}>
