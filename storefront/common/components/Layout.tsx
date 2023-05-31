@@ -3,7 +3,7 @@ import { useState } from "react";
 import Header from "./common/Header";
 import Footer from "./common/Footer";
 import { appName } from "../constants/common";
-import { CategoryProvider } from "@/context/CategoryContext";
+import { AppProvider } from "@/context/AppContext";
 import { ThemeContext } from "@/context/ThemeContext";
 import { getColorCode } from "@/modules/common/services/ColorSchemeService";
 
@@ -17,7 +17,7 @@ const Layout = ({ children }: Props) => {
 
     return (
         <ThemeContext.Provider value={theme}>
-            <CategoryProvider >
+            <AppProvider >
                 <Head>
                     <title>{appName}</title>
                     <meta name="description" content={appName + " storefront"} />
@@ -31,7 +31,7 @@ const Layout = ({ children }: Props) => {
                     {children}
                 </div>
                 <Footer setTheme={setTheme} />
-            </CategoryProvider>
+            </AppProvider>
         </ThemeContext.Provider>
     );
 }
