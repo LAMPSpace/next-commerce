@@ -13,6 +13,8 @@ import price_tag_1 from './price_tag_1.png';
 import price_tag_2 from './price_tag_2.png';
 import price_tag_3 from './price_tag_3.png';
 import price_tag_4 from './price_tag_4.png';
+import banner_ocb from './banner_ocb.png';
+import banner_vib from './banner_vib.png';
 import banner_2 from './banner_2.png';
 import banner_3 from './banner_3.png';
 import banner_1 from './banner_1.gif';
@@ -28,6 +30,11 @@ import laptop_1 from './laptop_1.jpg';
 import tv_1 from './tv_1.jpg';
 import summersale_1 from './summersale_1.jpg';
 import phone_1 from './phone_1.jpg';
+import banner_hsbc from './banner_hsbc.jpg';
+import banner_vcb from './banner_vcb.jpg';
+import springsale_1 from './springsale_1.jpg';
+import ad_1 from './ad_1.jpg';
+import flashsale_1 from './flashsale_1.jpg';
 
 type ListImages = {
     [key: string]: StaticImageData;
@@ -60,7 +67,14 @@ const listImages: ListImages = {
     price_tag_4,
     banner_1,
     banner_2,
-    banner_3
+    banner_3,
+    banner_hsbc,
+    banner_ocb,
+    banner_vib,
+    banner_vcb,
+    springsale_1,
+    ad_1,
+    flashsale_1
 };
 
 export default listImages;
