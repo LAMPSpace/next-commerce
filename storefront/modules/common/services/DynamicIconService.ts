@@ -20,7 +20,8 @@ const iconList: IconList = {
     'dark': 'MdDarkMode',
     'right-arrow': 'MdKeyboardDoubleArrowRight',
     'add-to-cart': 'MdOutlineAddShoppingCart',
-    'favorite': 'MdOutlineFavoriteBorder',
+    'favorite-outline': 'MdOutlineFavoriteBorder',
+    'favorite': 'MdFavorite',
     'star-fill': 'MdStar',
     'star-outline': 'MdStarOutline',
     'star-half': 'MdStarHalf'
