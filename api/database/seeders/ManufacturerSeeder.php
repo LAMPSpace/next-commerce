@@ -13,7 +13,7 @@ class ManufacturerSeeder extends Seeder
      */
     public function run(): void
     {
-        $manufacturers = ['Sony', 'Samsung', 'Apple', 'Xiaomi', 'MSI', 'Oppo', 'Vivo', 'LG'];
+        $manufacturers = ['Sony', 'Samsung', 'Apple', 'Xiaomi', 'MSI', 'Oppo', 'Vivo', 'LG', 'Realme', 'HP', 'JBL', 'Asus', 'Acer', 'Lenovo'];
         foreach ($manufacturers as $manufacturer) {
             Manufacturer::factory()->create([
                 'name' => $manufacturer,

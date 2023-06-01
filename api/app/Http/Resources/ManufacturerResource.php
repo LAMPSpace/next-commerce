@@ -19,7 +19,7 @@ class ManufacturerResource extends JsonResource
             'discount_uuid' => $this->discount_uuid,
             'name' => $this->name,
             'description' => $this->description,
-            'logo' => $this->logo,
+            'image' => $this->logo,
             'phone_number' => $this->phone_number,
             'email' => $this->email,
             'address' => $this->address,

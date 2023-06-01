@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Category\CategoryController;
+use App\Http\Controllers\HomeSetting\HomeSettingController;
 use App\Http\Controllers\Manufacturer\ManufacturerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -22,5 +23,6 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 
 Route::apiResources([
     'categories' => CategoryController::class,
-    'manufacturers' => ManufacturerController::class
+    'manufacturers' => ManufacturerController::class,
+    'home-settings' => HomeSettingController::class
 ]);
