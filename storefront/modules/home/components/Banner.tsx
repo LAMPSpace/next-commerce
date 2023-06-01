@@ -4,7 +4,8 @@ import { CategoryContext } from "@/context/CategoryContext";
 import { ImageWrapper } from "@/common/components/common";
 import { CustomSwiper, PictureCarousel, MegaMenu } from "@/modules/common/components";
 import { BanneLeftModel, BanneRightModel, BannerMainModel } from "../models/Banner";
-import { banner, getBannerCols } from "../services/BannerService";
+import { getBannerCols } from "../services/BannerService";
+import { AppHomeSettingModel } from "../models/HomeSetting";
 
 const BannerMain = ({ banner }: BannerMainModel) => {
     return (
@@ -70,21 +71,21 @@ const BannerRight = ({ items, height, grid }: BanneRightModel) => {
     )
 }
 
-const Banner = () => {
-    const mainBannerCols = getBannerCols(banner);
+const Banner = ({ homeSetting }: AppHomeSettingModel) => {
+    const mainBannerCols = getBannerCols(homeSetting.banner);
 
     return (
         <div className="banner flex-row items-center justify-center p-1">
             <div className="row"
-                style={{ minHeight: banner.height }}>
-                {banner.content.left.content &&
-                    <BannerLeft height={banner.height} grid={banner.content.left.grid} />
+                style={{ minHeight: homeSetting.banner.height }}>
+                {homeSetting.banner.content.left.content &&
+                    <BannerLeft height={homeSetting.banner.height} grid={homeSetting.banner.content.left.grid} />
                 }
                 <div className={"col-lg-" + mainBannerCols.lg + " col-md-" + mainBannerCols.md + " col-sm-12 px-1"}>
-                    <BannerMain banner={banner} />
+                    <BannerMain banner={homeSetting.banner} />
                 </div>
-                {banner.content.right.content &&
-                    <BannerRight items={banner.content.right.content} grid={banner.content.right.grid} height={banner.height} />
+                {homeSetting.banner.content.right.content &&
+                    <BannerRight items={homeSetting.banner.content.right.content} grid={homeSetting.banner.content.right.grid} height={homeSetting.banner.height} />
                 }
             </div>
         </div>

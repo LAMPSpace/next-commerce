@@ -22,7 +22,7 @@ const ProductCard = ({ item, height = 500 }: ProductCardModel) => {
                 style={{
                     borderRadius: 8,
                 }}>
-                <Card className="product-card" style={{
+                <Card className="hover-effect product-card" style={{
                     borderRadius: 8,
                     border: '1px solid lightgray',
                     color: getColorCode('foreground', theme),
@@ -65,7 +65,7 @@ const ProductCard = ({ item, height = 500 }: ProductCardModel) => {
                         <div className="flex items-center justify-center product-card-rating">
                             <div className="ml-auto">
                                 <button>
-                                    <IconTooltip color={'primary'} iconName="favorite" iconSize={40} iconBackground={false} content="Favorite" placement="top" />
+                                    <IconTooltip color={'primary'} iconName="favorite-outline" iconSize={40} iconBackground={false} content="Favorite" placement="top" />
                                 </button>
                                 <button>
                                     <IconTooltip color={'primary'} iconName="add-to-cart" iconSize={40} iconBackground={false} content="Add to cart" placement="top" />

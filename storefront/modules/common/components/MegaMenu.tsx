@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { ThemeContext } from "@/context/ThemeContext";
+import { HomeSettingContext } from "@/context/HomeSettingContext";
 import {
     MegaMenuButtonModel,
     MegaMenuContentModel,
@@ -28,15 +29,26 @@ const MegaMenuButton = ({ item, color, setItemShow }: MegaMenuButtonModel) => {
 }
 
 const MegaMenuButtonDisplay = ({ item }: MegaMenuButtonDisplayModel) => {
+    const homeSetting = useContext(HomeSettingContext);
+
     return (
         <div className="w-full p-2">
             <button className="w-full">
                 <div className="flex items-center">
                     <div className="mr-auto">
-                        <IconText iconName={item.icon} justify="start" iconSize={navIconSize} text={item.name} color={'foreground'} />
+                        <IconText
+                            iconName={item.icon}
+                            justify="start"
+                            iconSize={navIconSize}
+                            text={item.name}
+                            color={homeSetting?.color ? homeSetting.color : 'foreground'} />
                     </div>
                     <div className="ml-auto">
-                        <DynamicIcon iconName={'right-arrow'} iconSize={navIconSize} iconBackground={false} iconColor={'foreground'} />
+                        <DynamicIcon
+                            iconName={'right-arrow'}
+                            iconSize={navIconSize}
+                            iconBackground={false}
+                            iconColor={homeSetting?.color ? homeSetting.color : 'foreground'} />
                     </div>
                 </div>
             </button>
@@ -54,7 +66,10 @@ const MegaMenuContent = ({ items, theme, height, grid, className }: MegaMenuCont
             style={{ position: "absolute", maxWidth: 1536 }}
             onMouseLeave={() => setItemShow(null)}>
             <div className={"col-lg-" + grid.lg + " col-md-" + grid.md + " px-1"}
-                style={{ height: height, zIndex: 100 }}>
+                style={{
+                    height: height,
+                    zIndex: 100
+                }}>
                 <div className="w-full p-1"
                     style={{
                         borderRadius: 8,
@@ -143,7 +158,7 @@ const MegaMenu = ({ items, height, grid, className }: MegaMenuModel) => {
                         border: "1px solid lightgray",
                         borderRadius: 8,
                         height: height,
-                        overflowY: 'auto'
+                        overflowY: 'auto',
                     }}>
                     <>
                         {items.length > 0 && items.map((item, index) => {

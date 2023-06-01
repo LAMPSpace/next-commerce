@@ -4,13 +4,13 @@ import { ImageWrapper } from "@/common/components/common";
 
 import { MultiPicturesCarouselModel } from "../models/MultiPicturesCarousel";
 
-const MultiPicturesCarousel = ({ slides, name, height, width = '100%' }: MultiPicturesCarouselModel) => {
+const MultiPicturesCarousel = ({ items, name, height = 300, width = '100%' }: MultiPicturesCarouselModel) => {
     const getColumnSize = (slide: any[]) => {
         return 12 / slide.length;
     }
     return (
         <Carousel className="w-100" style={{ borderRadius: 8, background: 'none' }}>
-            {slides.map((slide, slideIndex) => {
+            {items && items.map((slide, slideIndex) => {
                 return (
                     <Carousel.Item style={{ height: height, width: width, borderRadius: 8 }}
                         key={'picture_carousel_slide_' + [name.replace(" ", "_").toLowerCase(), slideIndex].join('_')}>

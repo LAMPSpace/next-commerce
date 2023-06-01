@@ -2,8 +2,8 @@ import { PictureModel } from "./CustomSwiper"
 
 export type NestedPicturesCarouselModel = {
     name: string;
-    height: number;
+    height?: number;
     width?: number | string;
-    pictures: PictureModel[][];
+    items?: PictureModel[][];
     transform?: number;
 }

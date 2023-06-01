@@ -3,7 +3,7 @@ export type ManufacturerModel = {
     discount_uuid: string;
     name: string;
     description: string;
-    logo: string;
+    image: string;
     phone_number: string;
     email: string;
     address: string;

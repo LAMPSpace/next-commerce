@@ -2,7 +2,7 @@ import { PictureModel } from "./CustomSwiper"
 
 export type MultiPicturesCarouselModel = {
     name: string;
-    height: number;
+    height?: number;
     width?: number | string;
-    slides: PictureModel[][];
+    items?: PictureModel[][];
 }
