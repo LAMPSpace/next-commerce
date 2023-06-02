@@ -246,6 +246,72 @@ class CategorySeeder extends Seeder
                     ],
                 ]
             ],
+            'Smart Home' => [
+                'icon' => 'TbSmartHome',
+                'children' => [
+                    'Smart Home Appliances' => [
+                        'icon' => null,
+                        'children' => [
+                            'Smart Wash Machine' => [
+                                'icon' => 'CgSmartHomeWashMachine',
+                                'children' => []
+                            ],
+                            'Smart Heat' => [
+                                'icon' => 'CgSmartHomeHeat',
+                                'children' => []
+                            ],
+                            'Smart Light' => [
+                                'icon' => 'CgSmartHomeLight',
+                                'children' => []
+                            ],
+                        ]
+                    ],
+                ]
+            ],
+            'Watch' => [
+                'icon' => 'MdWatch',
+                'children' => [
+                    'Types' => [
+                        'icon' => null,
+                        'children' => [
+                            'Smart Watch' => [
+                                'icon' => 'BsSmartwatch',
+                                'children' => []
+                            ],
+                            'Classic Watch' => [
+                                'icon' => 'BsWatch',
+                                'children' => []
+                            ],
+                            'Sport Watch' => [
+                                'icon' => 'MdOutlineWatch',
+                                'children' => []
+                            ],
+                        ]
+                    ],
+                ]
+            ],
+            'News' => [
+                'icon' => 'ImNewspaper',
+                'children' => [
+                    'News Types' => [
+                        'icon' => null,
+                        'children' => [
+                            'Newest' => [
+                                'icon' => null,
+                                'children' => []
+                            ],
+                            'Technology News' => [
+                                'icon' => 'GrTechnology',
+                                'children' => []
+                            ],
+                            'Finance News' => [
+                                'icon' => null,
+                                'children' => []
+                            ],
+                        ]
+                    ],
+                ]
+            ],
         ];
 
         foreach ($defaultCategories as $keyParentCategory => $valueParentCategory) {
