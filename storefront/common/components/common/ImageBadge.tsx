@@ -54,7 +54,7 @@ export const ListImageBadges = ({ items, name, title, titleColor = 'foreground',
             <div>
                 {items.map((item, index) => {
                     return (
-                        <ImageBadge image={item.image} height={height} link={item.link} className={"hover-effect"} key={'home_manufacturer_' + [name, index].join("_")} />
+                        <ImageBadge image={item.image} height={height} link={item.link} className={"hover-effect"} key={'home_brand_' + [name, index].join("_")} />
                     );
                 })}
             </div>

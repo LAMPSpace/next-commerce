@@ -1,6 +1,6 @@
 import { createContext, PropsWithChildren } from 'react';
 import { CategoryProvider } from './CategoryContext';
-import { ManufacturerProvider } from './ManufacturerContext';
+import { BrandProvider } from './BrandContext';
 import { HomeSettingProvider } from './HomeSettingContext';
 
 export const AppContext = createContext({});
@@ -9,9 +9,9 @@ export const AppProvider = ({ children }: PropsWithChildren<{}>) => {
     return (
         <HomeSettingProvider>
             <CategoryProvider>
-                <ManufacturerProvider>
+                <BrandProvider>
                     {children}
-                </ManufacturerProvider>
+                </BrandProvider>
             </CategoryProvider>
         </HomeSettingProvider>
     );

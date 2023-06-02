@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('manufacturers', function (Blueprint $table) {
+        Schema::create('brands', function (Blueprint $table) {
             $table->uuid('uuid')->primary();
             $table->foreignUuid('discount_uuid')->nullable()->constrained('discounts', 'uuid');
             $table->string('name', 512)->unique();
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('manufacturers');
+        Schema::dropIfExists('brands');
     }
 };

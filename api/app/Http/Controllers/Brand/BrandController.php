@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Manufacturer;
+namespace App\Http\Controllers\Brand;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\ManufacturerCollection;
-use App\Interfaces\Service\ManufacturerServiceInterface;
+use App\Http\Resources\BrandCollection;
+use App\Interfaces\Service\BrandServiceInterface;
 use Illuminate\Http\Request;
 
-class ManufacturerController extends Controller
+class BrandController extends Controller
 {
     protected $service;
 
-    public function __construct(ManufacturerServiceInterface $service)
+    public function __construct(BrandServiceInterface $service)
     {
         $this->service = $service;
     }
@@ -20,10 +20,9 @@ class ManufacturerController extends Controller
      */
     public function index(Request $request)
     {
-        $manufacturers = $this->service->list($request);
-        return new ManufacturerCollection($manufacturers);
+        $brands = $this->service->list($request);
+        return new BrandCollection($brands);
     }
-
     /**
      * Store a newly created resource in storage.
      */

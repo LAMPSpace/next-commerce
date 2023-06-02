@@ -57,7 +57,7 @@ export const exampleProducts = [
     {
         uuid: '29b27a1a-26d6-4d82-b92c-009af5be8219',
         category_uuid: '5a0ea519-fc31-4264-af30-180c34cd56d8',
-        manufacturer_uuid: '29b27a1a-26d6-4d82-b92c-009af5be8218',
+        brand_uuid: '29b27a1a-26d6-4d82-b92c-009af5be8218',
         discount_uuid: null,
         status: 1,
         name: 'Xiaomi Redmi Note 10',
@@ -82,7 +82,7 @@ export const exampleProducts = [
     {
         uuid: '29b27a1a-26d6-4d82-b92c-009af5be8219',
         category_uuid: '5a0ea519-fc31-4264-af30-180c34cd56d8',
-        manufacturer_uuid: '29b27a1a-26d6-4d82-b92c-009af5be8218',
+        brand_uuid: '29b27a1a-26d6-4d82-b92c-009af5be8218',
         discount_uuid: null,
         status: 1,
         name: 'Xiaomi Redmi Note 10',
@@ -107,7 +107,7 @@ export const exampleProducts = [
     {
         uuid: '29b27a1a-26d6-4d82-b92c-009af5be8219',
         category_uuid: '5a0ea519-fc31-4264-af30-180c34cd56d8',
-        manufacturer_uuid: '29b27a1a-26d6-4d82-b92c-009af5be8218',
+        brand_uuid: '29b27a1a-26d6-4d82-b92c-009af5be8218',
         discount_uuid: null,
         status: 1,
         name: 'Xiaomi Redmi Note 10',
@@ -132,7 +132,7 @@ export const exampleProducts = [
     {
         uuid: '29b27a1a-26d6-4d82-b92c-009af5be8219',
         category_uuid: '5a0ea519-fc31-4264-af30-180c34cd56d8',
-        manufacturer_uuid: '29b27a1a-26d6-4d82-b92c-009af5be8218',
+        brand_uuid: '29b27a1a-26d6-4d82-b92c-009af5be8218',
         discount_uuid: null,
         status: 1,
         name: 'Xiaomi Redmi Note 10',
@@ -157,7 +157,7 @@ export const exampleProducts = [
     {
         uuid: '29b27a1a-26d6-4d82-b92c-009af5be8219',
         category_uuid: '5a0ea519-fc31-4264-af30-180c34cd56d8',
-        manufacturer_uuid: '29b27a1a-26d6-4d82-b92c-009af5be8218',
+        brand_uuid: '29b27a1a-26d6-4d82-b92c-009af5be8218',
         discount_uuid: null,
         status: 1,
         name: 'Xiaomi Redmi Note 10',
@@ -182,7 +182,7 @@ export const exampleProducts = [
     {
         uuid: '29b27a1a-26d6-4d82-b92c-009af5be8219',
         category_uuid: '5a0ea519-fc31-4264-af30-180c34cd56d8',
-        manufacturer_uuid: '29b27a1a-26d6-4d82-b92c-009af5be8218',
+        brand_uuid: '29b27a1a-26d6-4d82-b92c-009af5be8218',
         discount_uuid: null,
         status: 1,
         name: 'Xiaomi Redmi Note 10',
@@ -207,7 +207,7 @@ export const exampleProducts = [
     {
         uuid: '29b27a1a-26d6-4d82-b92c-009af5be8219',
         category_uuid: '5a0ea519-fc31-4264-af30-180c34cd56d8',
-        manufacturer_uuid: '29b27a1a-26d6-4d82-b92c-009af5be8218',
+        brand_uuid: '29b27a1a-26d6-4d82-b92c-009af5be8218',
         discount_uuid: null,
         status: 1,
         name: 'Xiaomi Redmi Note 10',
@@ -232,7 +232,7 @@ export const exampleProducts = [
     {
         uuid: '29b27a1a-26d6-4d82-b92c-009af5be8219',
         category_uuid: '5a0ea519-fc31-4264-af30-180c34cd56d8',
-        manufacturer_uuid: '29b27a1a-26d6-4d82-b92c-009af5be8218',
+        brand_uuid: '29b27a1a-26d6-4d82-b92c-009af5be8218',
         discount_uuid: null,
         status: 1,
         name: 'Xiaomi Redmi Note 10',
@@ -264,7 +264,7 @@ const constants: Constants = {
     products_carousel_recommended: 'products',
     products_carousel_flash_sale: 'products',
     products_carousel_phones: 'products',
-    manufacturers: 'manufacturers'
+    brands: 'brands'
 }
 
 export const getItemsByConstant = (name: string): string => {

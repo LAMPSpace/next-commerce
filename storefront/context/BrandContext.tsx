@@ -1,14 +1,14 @@
-import { ManufacturerModel } from "@/modules/catalog/models/Manufacturer";
+import { BrandModel } from "@/modules/catalog/models/Brand";
 import { PropsWithChildren, createContext, useEffect, useState } from "react";
 import { getData } from "@/modules/api/services/apiService";
 
-export const ManufacturerContext = createContext<ManufacturerModel[]>([]);
+export const BrandContext = createContext<BrandModel[]>([]);
 
-export const ManufacturerProvider = ({ children }: PropsWithChildren) => {
-    const [items, setItems] = useState<ManufacturerModel[]>([]);
+export const BrandProvider = ({ children }: PropsWithChildren) => {
+    const [items, setItems] = useState<BrandModel[]>([]);
 
     const params = {
-        resource: 'manufacturers',
+        resource: 'brands',
         params: [
             {
                 key: 'sort-by',
@@ -36,6 +36,6 @@ export const ManufacturerProvider = ({ children }: PropsWithChildren) => {
     }, []);
 
     return (
-        <ManufacturerContext.Provider value={items}>{children}</ManufacturerContext.Provider>
+        <BrandContext.Provider value={items}>{children}</BrandContext.Provider>
     )
 };

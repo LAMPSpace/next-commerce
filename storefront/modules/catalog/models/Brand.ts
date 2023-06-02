@@ -1,4 +1,4 @@
-export type ManufacturerModel = {
+export type BrandModel = {
     uuid: string;
     discount_uuid: string;
     name: string;

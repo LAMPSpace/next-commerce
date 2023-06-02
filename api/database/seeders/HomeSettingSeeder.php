@@ -171,8 +171,8 @@ class HomeSettingSeeder extends Seeder
             (object) [
                 'type' => 'list_image_badges',
                 'props' => (object)[
-                    'name' => 'manufacturers',
-                    'title' => 'Manufacturers',
+                    'name' => 'brands',
+                    'title' => 'Brands',
                     'titleColor' => 'foreground'
                 ]
             ],

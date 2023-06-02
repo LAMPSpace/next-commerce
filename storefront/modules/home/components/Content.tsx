@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ManufacturerContext } from "@/context/ManufacturerContext";
+import { BrandContext } from "@/context/BrandContext";
 import { NestedPicturesCarousel, MultiPicturesCarousel } from "@/modules/common/components";
 import { PictureModel } from "@/modules/common/models/CustomSwiper";
 import { ProductsCarousel } from "@/modules/catalog/components";
@@ -57,7 +57,7 @@ const OtherContentItem = ({ type, props, items }: OtherContentItemProps) => {
 }
 
 const Content = ({ homeSetting }: AppHomeSettingModel) => {
-    const manufacturers = useContext(ManufacturerContext);
+    const brands = useContext(BrandContext);
     const products = exampleProducts;
 
     return (
