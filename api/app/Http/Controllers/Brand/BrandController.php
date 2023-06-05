@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Brand;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Brand\CreateBrandRequest;
+use App\Http\Requests\Brand\UpdateBrandRequest;
 use App\Http\Resources\BrandCollection;
+use App\Http\Resources\BrandResource;
 use App\Interfaces\Service\BrandServiceInterface;
 use Illuminate\Http\Request;
 
@@ -26,9 +29,10 @@ class BrandController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(CreateBrandRequest $request)
     {
-        //
+        $brand = $this->service->create($request);
+        return new BrandResource($brand);
     }
 
     /**
@@ -36,15 +40,17 @@ class BrandController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $brand = $this->service->find($id);
+        return new BrandResource($brand);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateBrandRequest $request, string $id)
     {
-        //
+        $update = $this->service->update($request, $id);
+        return $update;
     }
 
     /**
@@ -52,6 +58,7 @@ class BrandController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $delete = $this->service->delete($id);
+        return $delete;
     }
 }

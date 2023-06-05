@@ -38,7 +38,7 @@ abstract class BaseRepository
 
     public function delete(string | int $id): bool
     {
-        return $this->model->find($id)->delete();
+        return $this->find($id)->delete();
     }
 
     public function find(string | int $id): ?Model
