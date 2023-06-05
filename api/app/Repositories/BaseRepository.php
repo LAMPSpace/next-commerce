@@ -31,18 +31,18 @@ abstract class BaseRepository
         return $this->model->create($data);
     }
 
-    public function update(array $data, string $uuid): bool
+    public function update(array $data, string | int $id): bool
     {
-        return $this->model->find($uuid)->update($data);
+        return $this->model->find($id)->update($data);
     }
 
-    public function delete(string $uuid): bool
+    public function delete(string | int $id): bool
     {
-        return $this->model->find($uuid)->delete();
+        return $this->model->find($id)->delete();
     }
 
-    public function find(string $uuid): ?Model
+    public function find(string | int $id): ?Model
     {
-        return $this->model->findOrFail($uuid);
+        return $this->model->findOrFail($id);
     }
 }

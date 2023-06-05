@@ -2,14 +2,11 @@
 
 namespace App\Models;
 
-use App\Traits\UUID;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class HomeSetting extends BaseModel
 {
-    use HasFactory, UUID;
-
-    protected $primaryKey = 'uuid';
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.

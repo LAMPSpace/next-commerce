@@ -24,9 +24,9 @@ abstract class BaseService
         return $this->repository->list($params);
     }
 
-    public function find(string $uuid): ?Model
+    public function find(string | int $id): ?Model
     {
-        return $this->repository->find($uuid);
+        return $this->repository->find($id);
     }
 
     public function create(Request $request): Model
@@ -35,15 +35,15 @@ abstract class BaseService
         return $this->repository->create($data);
     }
 
-    public function update(Request $request, string $uuid): bool
+    public function update(Request $request, string | int $id): bool
     {
         $data = $request->all();
-        return $this->repository->update($data, $uuid);
+        return $this->repository->update($data, $id);
     }
 
-    public function delete(string $uuid): bool
+    public function delete(string | int $id): bool
     {
-        return $this->repository->delete($uuid);
+        return $this->repository->delete($id);
     }
 
     public function getPerPage(array $params): array

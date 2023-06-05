@@ -2,15 +2,12 @@
 
 namespace App\Models;
 
-use App\Traits\UUID;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Brand extends BaseModel
 {
-    use HasFactory, UUID;
-
-    protected $primaryKey = 'uuid';
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -18,7 +15,7 @@ class Brand extends BaseModel
      * @var array<int, string>
      */
     protected $fillable = [
-        'discount_uuid',
+        'discount_id',
         'name',
         'description',
         'logo',
@@ -30,7 +27,7 @@ class Brand extends BaseModel
 
     protected $sortFields = [
         'name',
-        'uuid',
+        'id',
         'description',
         'display'
     ];
@@ -38,7 +35,7 @@ class Brand extends BaseModel
     protected $filterFields = [
         'status',
         'name',
-        'discount_uuid'
+        'discount_id'
     ];
 
     protected $searchFields = [

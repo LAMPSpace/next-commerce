@@ -15,7 +15,7 @@ class HomeSettingResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'uuid' => $this->uuid,
+            'id' => $this->id,
             'name' => $this->name,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,

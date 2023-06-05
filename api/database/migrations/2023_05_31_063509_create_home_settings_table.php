@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('home_settings', function (Blueprint $table) {
-            $table->uuid('uuid')->primary();
+            $table->id();
             $table->string('name', 128);
             $table->text('description')->nullable();
             $table->dateTime('start_date')->nullable();

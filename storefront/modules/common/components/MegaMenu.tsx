@@ -59,7 +59,7 @@ const MegaMenuButtonDisplay = ({ item }: MegaMenuButtonDisplayModel) => {
 const MegaMenuContent = ({ items, theme, height, grid, className }: MegaMenuContentModel) => {
     const [itemShow, setItemShow] = useState<NestedDropdownItemModel | null>(null);
     const getButtonColor = (item: NestedDropdownItemModel): string => {
-        return itemShow && itemShow.uuid === item.uuid ? 'background' : 'transparent';
+        return itemShow && itemShow.id === item.id ? 'background' : 'transparent';
     }
     return (
         <div className={"row pr-0 " + className}

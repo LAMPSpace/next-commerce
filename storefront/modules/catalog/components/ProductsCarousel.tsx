@@ -52,7 +52,7 @@ const ProductsCarousel = ({
                                     itemsPerSlide.map((item, productPerSlideIndex) => {
                                         return (
                                             <ProductCard item={item}
-                                                key={'product_item_' + [name.replace("-", "_").toLowerCase(), productPerSlideIndex, item.uuid].join("_")} />
+                                                key={'product_item_' + [name.replace("-", "_").toLowerCase(), productPerSlideIndex, item.id].join("_")} />
                                         );
                                     })
                                 }

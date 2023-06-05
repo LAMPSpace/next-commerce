@@ -15,8 +15,8 @@ class BrandResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'uuid' => $this->uuid,
-            'discount_uuid' => $this->discount_uuid,
+            'id' => $this->id,
+            'discount_id' => $this->discount_id,
             'name' => $this->name,
             'description' => $this->description,
             'image' => $this->logo,

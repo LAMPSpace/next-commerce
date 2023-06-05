@@ -11,7 +11,7 @@ interface BaseRepositoryInterface
     public function getModel(): Model;
     public function list(array $params): Collection | LengthAwarePaginator;
     public function create(array $data): Model;
-    public function update(array $data, string $uuid): bool;
-    public function delete(string $uuid): bool;
-    public function find(string $uuid): ?Model;
+    public function update(array $data, string | int $id): bool;
+    public function delete(string | int $id): bool;
+    public function find(string | int $id): ?Model;
 }

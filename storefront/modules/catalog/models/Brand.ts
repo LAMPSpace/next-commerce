@@ -1,6 +1,6 @@
 export type BrandModel = {
-    uuid: string;
-    discount_uuid: string;
+    id: number;
+    discount_id: number;
     name: string;
     description: string;
     image: string;

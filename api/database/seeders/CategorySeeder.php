@@ -323,7 +323,7 @@ class CategorySeeder extends Seeder
             if (count($valueParentCategory['children']) > 0) {
                 foreach ($valueParentCategory['children'] as $keyCategory => $valueCategory) {
                     $category = Category::factory()->create([
-                        'parent_uuid' => $parentCategory->uuid,
+                        'parent_id' => $parentCategory->id,
                         'name' => $keyCategory,
                         'icon' => $valueCategory['icon'],
                         'level' => $parentCategory->level + 1
@@ -331,7 +331,7 @@ class CategorySeeder extends Seeder
                     if (count($valueCategory['children']) > 0) {
                         foreach ($valueCategory['children'] as $keyChildCategory => $valueChileCategory) {
                             Category::factory()->create([
-                                'parent_uuid' => $category->uuid,
+                                'parent_id' => $category->id,
                                 'name' => $keyChildCategory,
                                 'icon' => $valueChileCategory['icon'],
                                 'level' => $category->level + 1

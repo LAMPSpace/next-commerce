@@ -1,8 +1,8 @@
 export type ProductModel = {
-    uuid: string;
-    category_uuid: string;
-    brand_uuid: string;
-    discount_uuid: string | null;
+    id: number;
+    category_id: number;
+    brand_id: number;
+    discount_id: number | null;
     status: number;
     name: string;
     summary: string;
