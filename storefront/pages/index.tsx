@@ -1,10 +1,40 @@
 import { NextPage } from "next";
+import { useContext } from "react";
+import { ThemeContext } from "@/context/ThemeContext";
+import { HomeSettingContext } from "@/context/HomeSettingContext";
+import { Banner, Content } from "@/modules/home/components";
+import { getColorCode } from "@/modules/common/services/ColorSchemeService";
 
-const Home: NextPage = () => {
+
+const Home: NextPage = (props) => {
+  const homeSetting = useContext(HomeSettingContext);
+  const theme = useContext(ThemeContext);
+
   return (
-    <div className="container">
-      <h1>Home page</h1>
-    </div>
+    <>
+      {homeSetting &&
+        <>
+          {!homeSetting.background_images &&
+            <div className="container" style={{
+              backgroundColor: getColorCode(homeSetting.background_color, theme),
+              color: getColorCode(homeSetting.color, theme)
+            }}>
+              <Banner homeSetting={homeSetting} />
+              <Content homeSetting={homeSetting} />
+            </div>
+          }
+          {homeSetting.background_images &&
+            <div className="container" style={{
+              backgroundImage: 'url(' + homeSetting.background_images + ')',
+              color: getColorCode(homeSetting.color, theme)
+            }}>
+              <Banner homeSetting={homeSetting} />
+              <Content homeSetting={homeSetting} />
+            </div>
+          }
+        </>
+      }
+    </ >
   )
 }
 

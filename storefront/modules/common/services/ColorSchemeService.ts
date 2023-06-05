@@ -1,8 +1,8 @@
 import { ColorSchemeModel, ColorSchemes } from "../models/ColorScheme";
 
 const lightTheme: ColorSchemeModel = {
-  primary: '#273473',
-  primaryLight: '#365280',
+  primary: '#a6171a',
+  primaryLight: '#c92630',
   secondary: '#757575',
   success: '#28a745',
   warning: '#ffc107',
@@ -15,12 +15,13 @@ const lightTheme: ColorSchemeModel = {
   foreground: '#000000',
   background: '#ffffff',
   black: '#000000',
-  white: '#ffffff'
+  white: '#ffffff',
+  transparent: 'transparent'
 }
 
 const darkTheme: ColorSchemeModel = {
-  primary: '#b5e1f7',
-  primaryLight: '#34c8e0',
+  primary: '#eb7583',
+  primaryLight: '#e3464f',
   secondary: '#757575',
   success: '#28a745',
   warning: '#ffc107',
@@ -33,7 +34,8 @@ const darkTheme: ColorSchemeModel = {
   background: '#000000',
   foreground: '#ffffff',
   black: '#000000',
-  white: '#ffffff'
+  white: '#ffffff',
+  transparent: 'transparent'
 }
 
 const themes: ColorSchemes = {
@@ -41,19 +43,11 @@ const themes: ColorSchemes = {
   dark: darkTheme
 }
 
-// const theme: ThemeModel = window.matchMedia('(prefers-color-scheme: dark)').matches ? darkTheme : lightTheme;
-
-// export const getColorCode = (color: string, mode: string): string => {
-//   return themes[mode][color];
-// }
-
-const theme: string = "light";
-
-export const getColorCode = (color?: string | null): string => {
+export const getColorCode = (color?: string | null, theme: string = 'light'): string => {
   let colorName = color ? color : 'black';
   return themes[theme][colorName];
 }
 
-export const getNavbarVariant = () => {
+export const getVariant = (theme: string = 'light') => {
   return theme === "light" ? "dark" : "light";
 }

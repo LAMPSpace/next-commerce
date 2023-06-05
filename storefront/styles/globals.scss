@@ -1,18 +1,126 @@
 body {
     .body {
         max-width: none;
-        min-height: 100vh;
+        min-height: calc(100vh - 300px);
+
+        .page {
+            min-height: calc(100vh - 300px);
+        }
 
         .container {
-            max-width: none;
+            max-width: 1536px;
+        }
+
+        .images-swiper {
+            border: 1px solid lightgray;
+            border-radius: 8px;
+
+            .images-swiper-content {
+                padding: 10px;
+            }
+
+            .images-swiper-pagination {
+                padding: 10px;
+            }
+
+            .swiper-slide {
+                img {
+                    height: 100%;
+                    width: 100%;
+                    border-radius: 8px;
+                }
+            }
+
+            .swiper-pagination {
+                display: none;
+            }
+        }
+
+        .banner {
+            @media screen and (max-width: 1024px) {
+                .banner-right {
+                    display: none;
+                }
+            }
+
+            @media screen and (max-width: 768px) {
+                .banner-left {
+                    display: none;
+                }
+
+                .banner-right {
+                    display: none;
+                }
+            }
+
+            .banner-part {
+
+                border-radius: 8px;
+                box-shadow: 0px 4px 4px 0px lightgray;
+
+                /* Hide scrollbar for IE and Edge */
+                -ms-overflow-style: none;
+
+                /* Hide scrollbar for Firefox */
+                scrollbar-width: none;
+
+                /* Hide scrollbar for Chrome, Safari and Opera */
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+        }
+
+        .carousel {
+            .carousel-inner {
+                border-radius: 8px;
+            }
+
+            .carousel-indicators {
+                display: none;
+            }
+
+            .carousel-control-prev-icon {
+                padding: 30px;
+                border-radius: 30px;
+                background-color: rgba(0, 0, 0, 0.2);
+
+                &:hover {
+                    z-index: 200;
+                }
+            }
+
+            .carousel-control-next-icon {
+                padding: 30px;
+                border-radius: 30px;
+                background-color: rgba(0, 0, 0, 0.2);
+
+                &:hover {
+                    z-index: 200;
+                }
+            }
+        }
+
+        .hover-effect {
+            &:hover {
+                z-index: 100;
+                box-shadow: 0px 8px 16px 0px lightgray;
+                transform: scale(1.01);
+            }
         }
     }
 
     .footer {
-        min-height: 300px;
+        .footer-main {
+            min-height: 300px;
+        }
 
         a {
             text-decoration: none;
+
+            &:hover {
+                color: white;
+            }
         }
     }
 }

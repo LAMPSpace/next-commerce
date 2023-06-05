@@ -14,13 +14,23 @@ const iconList: IconList = {
     'orders': 'TbTruckDelivery',
     'stores': 'MdStore',
     'not-found': 'TbError404',
-    'categories': 'MdCategory'
+    'categories': 'MdCategory',
+    'tooltip': 'IoMdInformationCircle',
+    'light': 'MdLightMode',
+    'dark': 'MdDarkMode',
+    'right-arrow': 'MdKeyboardDoubleArrowRight',
+    'add-to-cart': 'MdOutlineAddShoppingCart',
+    'favorite-outline': 'MdOutlineFavoriteBorder',
+    'favorite': 'MdFavorite',
+    'star-fill': 'MdStar',
+    'star-outline': 'MdStarOutline',
+    'star-half': 'MdStarHalf'
 }
 
 export const getIconName = (iconName: string): string => {
     return Object.keys(iconList).includes(iconName) ? iconList[iconName] : iconName;
 }
 
-export const getIconBackgroundColor = (color: string | null): string => {
-    return color && color !== null ? getColorCode(color) + backgroundOpacity : 'transparent';
+export const getBackgroundColor = (color: string | null, theme: string = 'light'): string => {
+    return color && color !== null ? getColorCode(color, theme) + backgroundOpacity : 'transparent';
 }

@@ -1,13 +1,6 @@
-import { ParamModel } from "@/modules/api/models/Param";
+import { NestedDropdownItemsListModel } from "../models/NestedDropdown";
 
-type NestedDropdownItems = {
-    [key: string]: {
-        resource: string;
-        params: ParamModel[]
-    }
-}
-
-const nestedDropdownItems: NestedDropdownItems = {
+const nestedDropdownItems: NestedDropdownItemsListModel = {
     categories: {
         resource: 'categories',
         params: [
