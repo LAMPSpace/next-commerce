@@ -33,7 +33,7 @@ abstract class BaseRepository
 
     public function update(array $data, string | int $id): bool
     {
-        return $this->model->find($id)->update($data);
+        return $this->find($id)->update($data);
     }
 
     public function delete(string | int $id): bool

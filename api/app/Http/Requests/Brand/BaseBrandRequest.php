@@ -22,13 +22,10 @@ class BaseBrandRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'discount_id' => ['nullable', 'exists:discounts,id'],
-            'name' => ['required', 'string', 'unique:brands,name'],
-            'logo' => ['nullable', 'max:50'],
-            'phone_number' => ['required', 'max:30', 'unique:brands,phone_number'],
-            'email' => ['required', 'max:512', 'unique:brands,email'],
-            'address' => ['required', 'max:512', 'unique:brands,address'],
-            'status' => ['nullable', 'in:1,2'],
+            'discount_id' => ['nullable', 'integer', 'exists:discounts,id'],
+            'description' => ['nullable', 'string'],
+            'logo' => ['nullable', 'string', 'max:50'],
+            'status' => ['nullable', 'integer', 'in:1,2'],
         ];
     }
 }

@@ -21,6 +21,11 @@ class CreateBrandRequest extends BaseBrandRequest
      */
     public function rules(): array
     {
-        return parent::rules() + [];
+        return parent::rules() + [
+            'name' => ['required', 'string', 'max:512', 'unique:brands,name'],
+            'phone_number' => ['required', 'string', 'max:30', 'unique:brands,phone_number'],
+            'email' => ['required', 'string', 'max:512', 'unique:brands,email'],
+            'address' => ['required', 'string', 'max:512', 'unique:brands,address'],
+        ];
     }
 }
