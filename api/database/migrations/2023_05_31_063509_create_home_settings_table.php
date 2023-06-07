@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->dateTime('start_date')->nullable();
             $table->dateTime('end_date')->nullable();
-            $table->text('background_images')->nullable();
+            $table->text('background_image')->nullable();
             $table->string('color', 30)->default('foreground');
             $table->string('background_color', 30)->default('background');
             $table->text('banner');

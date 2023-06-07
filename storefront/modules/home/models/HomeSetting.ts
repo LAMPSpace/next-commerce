@@ -6,7 +6,7 @@ export type HomeSettingModel = {
     name: string;
     start_date: Date | null;
     end_date: Date | null;
-    background_images: string | null;
+    background_image: string | null;
     color: string;
     background_color: string;
     banner: BannerModel;

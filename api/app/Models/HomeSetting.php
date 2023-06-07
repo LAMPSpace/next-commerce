@@ -18,7 +18,30 @@ class HomeSetting extends BaseModel
         'description',
         'start_date',
         'end_date',
-        'background_images',
+        'background_image',
+        'color',
+        'background_color',
+        'banner',
+        'content'
+    ];
+
+    protected $sortFields = [
+        'name',
+        'start_date',
+        'end_date'
+    ];
+
+    protected $filterFields = [];
+
+    protected $searchFields = [
+        'name',
+        'description'
+    ];
+
+    protected $stringFields = [
+        'name',
+        'description',
+        'background_image',
         'color',
         'background_color',
         'banner',

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\HomeSetting;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -19,7 +19,7 @@ class HomeSettingResource extends JsonResource
             'name' => $this->name,
             'start_date' => $this->start_date,
             'end_date' => $this->end_date,
-            'background_images' => $this->background_images,
+            'background_image' => $this->background_image,
             'color' => $this->color,
             'background_color' => $this->background_color,
             'banner' => json_decode($this->banner),

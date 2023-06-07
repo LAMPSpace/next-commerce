@@ -14,7 +14,7 @@ const Home: NextPage = (props) => {
     <>
       {homeSetting &&
         <>
-          {!homeSetting.background_images &&
+          {!homeSetting.background_image &&
             <div className="container" style={{
               backgroundColor: getColorCode(homeSetting.background_color, theme),
               color: getColorCode(homeSetting.color, theme)
@@ -23,9 +23,9 @@ const Home: NextPage = (props) => {
               <Content homeSetting={homeSetting} />
             </div>
           }
-          {homeSetting.background_images &&
+          {homeSetting.background_image &&
             <div className="container" style={{
-              backgroundImage: 'url(' + homeSetting.background_images + ')',
+              backgroundImage: 'url(' + homeSetting.background_image + ')',
               color: getColorCode(homeSetting.color, theme)
             }}>
               <Banner homeSetting={homeSetting} />

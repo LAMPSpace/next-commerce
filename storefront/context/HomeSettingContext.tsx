@@ -8,30 +8,13 @@ export const HomeSettingProvider = ({ children }: PropsWithChildren) => {
     const [item, setItem] = useState<HomeSettingModel | undefined>();
 
     const params = {
-        resource: 'home-settings',
-        params: [
-            {
-                key: 'sort-by',
-                value: 'start_date'
-            },
-            {
-                key: 'sort',
-                value: 'asc'
-            },
-            {
-                key: 'status',
-                value: '1'
-            },
-            {
-                key: 'per-page',
-                value: '1'
-            }
-        ]
+        resource: 'current-home-setting',
+        params: []
     };
 
     useEffect(() => {
         getData(params['resource'], params['params']).then(
-            (data) => { setItem(data.data[0]); }
+            (data) => { setItem(data.data); }
         );
     }, []);
 

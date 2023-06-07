@@ -26,3 +26,7 @@ Route::apiResources([
     'brands' => BrandController::class,
     'home-settings' => HomeSettingController::class
 ]);
+
+Route::controller(HomeSettingController::class)->group(function () {
+    Route::get('current-home-setting', 'current');
+});
