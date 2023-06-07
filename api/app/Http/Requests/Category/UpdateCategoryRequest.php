@@ -28,7 +28,7 @@ class UpdateCategoryRequest extends BaseCategoryRequest
     public function rules(): array
     {
         return parent::rules() + [
-            'name' => ['nullable', 'string', 'max:128', Rule::unique('categories', 'name')->whereNot('id', $this->id)],
+            'name' => ['required_unless:name,null', 'string', 'max:128', Rule::unique('categories', 'name')->whereNot('id', $this->id)],
         ];
     }
 }
