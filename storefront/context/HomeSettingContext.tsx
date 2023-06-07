@@ -15,7 +15,7 @@ export const HomeSettingProvider = ({ children }: PropsWithChildren) => {
     useEffect(() => {
         getData(params['resource'], params['params']).then(
             (data) => { setItem(data.data); }
-        );
+        ).catch((err) => console.log(err));
     }, []);
 
     return (

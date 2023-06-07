@@ -17,7 +17,7 @@ class HomeSettingRepository extends SortFilterSearchRepository implements HomeSe
     {
         return $this->model
             ->getAllInformation()
-            ->where('id', 1)
+            ->where('name', 'Default')
             ->orWhere(function ($query) {
                 $query->whereDate('start_date', '<=', Carbon::today('Asia/Ho_Chi_Minh'))
                     ->whereDate('end_date', '>=', Carbon::today('Asia/Ho_Chi_Minh'));
@@ -25,6 +25,6 @@ class HomeSettingRepository extends SortFilterSearchRepository implements HomeSe
             ->orderBy('end_date', 'asc')
             ->orderBy('start_date', 'desc')
             ->orderBy('id')
-            ->first();
+            ->firstOrFail();
     }
 }
