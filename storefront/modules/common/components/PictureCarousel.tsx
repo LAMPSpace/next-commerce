@@ -13,7 +13,7 @@ const PictureCarousel = ({ pictures, name, height, width, showTitle = false }: P
                         <div className="flex items-center justify-center"
                             style={{ height: height }}>
                             {picture.link &&
-                                <Link href={picture.link}>
+                                <Link href={picture.link} className="w-full">
                                     <ImageWrapper
                                         image={picture.image}
                                         style={{ height: height, width: width, borderRadius: 8 }} />
