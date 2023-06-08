@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./common/Header";
 import Footer from "./common/Footer";
 import { appName } from "../constants/common";
@@ -14,6 +14,17 @@ type Props = {
 
 const Layout = ({ children }: Props) => {
     const [theme, setTheme] = useState<string>('light');
+
+    useEffect(() => {
+        if (typeof window !== undefined) {
+            let currentTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+            setTheme(currentTheme);
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+                const newTheme = event.matches ? "dark" : "light";
+                setTheme(newTheme)
+            });
+        }
+    }, [])
 
     return (
         <ThemeContext.Provider value={theme}>
@@ -30,7 +41,7 @@ const Layout = ({ children }: Props) => {
                 }}>
                     {children}
                 </div>
-                <Footer setTheme={setTheme} />
+                <Footer />
             </AppProvider>
         </ThemeContext.Provider>
     );
