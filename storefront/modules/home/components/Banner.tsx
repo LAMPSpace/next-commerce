@@ -46,7 +46,7 @@ const BannerRight = ({ items, height, grid }: BanneRightModel) => {
     return (
         <div className={"banner-right col-" + grid.lg + " px-1"}
             style={{ zIndex: 100 }}>
-            <div className="banner-part flex justify-center" style={{
+            <div className="banner-part hide-scroll flex justify-center" style={{
                 border: "1px solid lightgray",
                 borderRadius: 8,
                 height: height,

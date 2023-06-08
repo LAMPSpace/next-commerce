@@ -15,25 +15,12 @@ import { navIconSize } from "@/common/constants/common";
 import DynamicIcon from "./DynamicIcon";
 
 const MegaMenuButton = ({ item, color, setItemShow }: MegaMenuButtonModel) => {
+
     return (
-        <div className="w-full p-2" style={{
-            backgroundColor: 'transparent',
-        }}>
+        <div className="w-full p-2" >
             <button className="w-full"
                 onMouseEnter={() => setItemShow(item)}
             >
-                <IconText iconName={item.icon} justify="start" iconSize={navIconSize} text={item.name} color={color} />
-            </button>
-        </div>
-    );
-}
-
-const MegaMenuButtonDisplay = ({ item }: MegaMenuButtonDisplayModel) => {
-    const homeSetting = useContext(HomeSettingContext);
-
-    return (
-        <div className="w-full p-2">
-            <button className="w-full">
                 <div className="flex items-center">
                     <div className="mr-auto">
                         <IconText
@@ -41,14 +28,15 @@ const MegaMenuButtonDisplay = ({ item }: MegaMenuButtonDisplayModel) => {
                             justify="start"
                             iconSize={navIconSize}
                             text={item.name}
-                            color={homeSetting?.color ? homeSetting.color : 'foreground'} />
+                            color={color} />
+
                     </div>
                     <div className="ml-auto">
                         <DynamicIcon
                             iconName={'right-arrow'}
                             iconSize={navIconSize}
                             iconBackground={false}
-                            iconColor={homeSetting?.color ? homeSetting.color : 'foreground'} />
+                            iconColor={color} />
                     </div>
                 </div>
             </button>
@@ -56,11 +44,31 @@ const MegaMenuButtonDisplay = ({ item }: MegaMenuButtonDisplayModel) => {
     );
 }
 
+const MegaMenuButtonDisplay = ({ item }: MegaMenuButtonDisplayModel) => {
+
+    return (
+        <div className="w-full p-2">
+            <button className="w-full">
+                <IconText
+                    iconName={item.icon}
+                    justify="start"
+                    iconSize={navIconSize}
+                    text={item.name}
+                    color={'transparent'} />
+            </button>
+        </div>
+    );
+}
+
 const MegaMenuContent = ({ items, theme, height, grid, className }: MegaMenuContentModel) => {
+    const homeSetting = useContext(HomeSettingContext);
+    const color = homeSetting?.color ? homeSetting.color : 'foreground';
     const [itemShow, setItemShow] = useState<NestedDropdownItemModel | null>(null);
+
     const getButtonColor = (item: NestedDropdownItemModel): string => {
-        return itemShow && itemShow.id === item.id ? 'background' : 'transparent';
+        return itemShow && itemShow.id === item.id ? 'background' : color;
     }
+
     return (
         <div className={"row pr-0 " + className}
             style={{ position: "absolute", maxWidth: 1536 }}
@@ -70,7 +78,7 @@ const MegaMenuContent = ({ items, theme, height, grid, className }: MegaMenuCont
                     height: height,
                     zIndex: 100
                 }}>
-                <div className="w-full p-1"
+                <div className="w-full p-1 hide-scroll"
                     style={{
                         borderRadius: 8,
                         height: height,
@@ -107,8 +115,7 @@ const MegaMenuContent = ({ items, theme, height, grid, className }: MegaMenuCont
                                 <MegaMenuContentDisplay item={item} theme={theme} />
                             </div>
                         );
-                    })
-                    }
+                    })}
                 </div>
             </div>}
         </div>
@@ -153,7 +160,7 @@ const MegaMenu = ({ items, height, grid, className }: MegaMenuModel) => {
     return (
         <>
             <div className={"col-lg-" + grid.lg + " col-md-" + grid.md + " px-1 " + className} style={{ position: "relative" }}>
-                <div className="banner-part p-1 w-full"
+                <div className="banner-part hide-scroll p-1 w-full"
                     style={{
                         border: "1px solid lightgray",
                         borderRadius: 8,
