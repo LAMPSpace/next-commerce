@@ -30,7 +30,7 @@ class UpdateBrandRequest extends BaseBrandRequest
     public function rules(): array
     {
         return parent::rules() + [
-            'name' => ['required_unless:name,null', 'string', 'max:512', 'unique:brands,name'],
+            'name' => ['required_unless:name,null', 'string', 'max:512', Rule::unique('brands', 'name')->whereNot('id', $this->id)],
             'phone_number' => ['required_unless:phone_number,null', 'string', 'max:30', Rule::unique('brands', 'phone_number')->whereNot('id', $this->id)],
             'email' => ['required_unless:email,null', 'string', 'max:512', Rule::unique('brands', 'email')->whereNot('id', $this->id)],
             'address' => ['required_unless:address,null', 'string', 'max:512', Rule::unique('brands', 'address')->whereNot('id', $this->id)],
