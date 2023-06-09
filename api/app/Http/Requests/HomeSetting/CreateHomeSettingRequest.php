@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\HomeSetting;
 
+use Carbon\Carbon;
+
 class CreateHomeSettingRequest extends BaseHomeSettingRequest
 {
     /**
@@ -21,11 +23,8 @@ class CreateHomeSettingRequest extends BaseHomeSettingRequest
     {
         return parent::rules() + [
             'name' => ['required', 'string', ' max:128', 'unique:home_settings,name'],
-            'start_date' => ['required', 'date', 'after_or_equal:today'],
+            'start_date' => ['required', 'date', 'after:' . Carbon::yesterday('Asia/Ho_Chi_Minh')],
             'end_date' => ['required', 'date', 'after_or_equal:start_date'],
-            'banner_height' => ['required', 'integer', 'gte:100'],
-            'banner_main_type' => ['required', 'string', 'in:carousel,swiper'],
-            'banner_main_pictures' => ['required'],
         ];
     }
 }

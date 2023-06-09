@@ -3,6 +3,7 @@
 namespace App\Http\Requests\HomeSetting;
 
 use Illuminate\Validation\Rule;
+use Carbon\Carbon;
 
 class UpdateHomeSettingRequest extends BaseHomeSettingRequest
 {
@@ -29,11 +30,8 @@ class UpdateHomeSettingRequest extends BaseHomeSettingRequest
     {
         return parent::rules() + [
             'name' => ['required_unless:name,null', 'string', ' max:128', Rule::unique('home_settings', 'name')->whereNot('id', $this->id)],
-            'start_date' => ['required_unless:start_date,null', 'date'],
+            'start_date' => ['required_unless:start_date,null', 'date', 'after:' . Carbon::yesterday('Asia/Ho_Chi_Minh')],
             'end_date' => ['required_unless:end_date,null', 'date', 'after_or_equal:start_date'],
-            'banner_height' => ['required_unless:banner_height,null', 'integer', 'gte:100'],
-            'banner_main_type' => ['required_unless:banner_main_type,null', 'string', 'in:carousel,swiper'],
-            'banner_main_pictures' => ['required_unless:banner_main_pictures,null'],
         ];
     }
 }

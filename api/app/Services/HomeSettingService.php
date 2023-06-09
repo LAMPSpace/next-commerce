@@ -38,7 +38,7 @@ class HomeSettingService extends SortFilterSearchService implements HomeSettingS
                 'main' => (object) [
                     'type' => $data['banner_main_type'],
                     'pictures' => $data['banner_main_pictures'],
-                    'pagination' => isset($data['banner_main_pagination']) ? $data['banner_main_pagination'] : null,
+                    'pagination' => isset($data['banner_main_pagination']) ? $data['banner_main_pagination'] : 'title',
                     'centeredSlides' => isset($data['banner_main_centered_slides']) ? $data['banner_main_centered_slides'] : null,
                     'showTitle' => isset($data['banner_main_show_title']) ? $data['banner_main_show_title'] : null
                 ],
@@ -53,7 +53,8 @@ class HomeSettingService extends SortFilterSearchService implements HomeSettingS
 
     public function getHomeContent(array $data)
     {
-        return json_encode($data['content']);
+        $content = isset($data['content']) ? $data['content'] : [];
+        return json_encode($content);
     }
 
     public function getData($request)
