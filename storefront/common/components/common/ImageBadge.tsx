@@ -10,6 +10,7 @@ type ImageBadgeProps = {
     height: number;
     link?: string;
     className?: string;
+    backgroundColor?: string;
 }
 
 type ListImageBadgeProps = {
@@ -18,16 +19,20 @@ type ListImageBadgeProps = {
     height?: number;
     title?: string;
     titleColor?: string;
+    backgroundColor?: string;
 }
 
-const ImageBadge = ({ image, height, link, className }: ImageBadgeProps) => {
+const ImageBadge = ({ image, height, link, className, backgroundColor = "transparent" }: ImageBadgeProps) => {
+    const theme = useContext(ThemeContext);
+
     return link ? (
         <Link href={link}>
             <ImageWrapper className={"px-3 py-1 m-1 " + className} image={image} style={{
                 height: height,
                 borderRadius: height,
                 border: '1px solid lightgray',
-                display: 'inline-block'
+                display: 'inline-block',
+                backgroundColor: getColorCode(backgroundColor, theme)
             }} />
         </Link>
     ) : (
@@ -35,12 +40,13 @@ const ImageBadge = ({ image, height, link, className }: ImageBadgeProps) => {
             height: height,
             borderRadius: height,
             border: '1px solid lightgray',
-            display: 'inline-block'
+            display: 'inline-block',
+            backgroundColor: getColorCode(backgroundColor, theme)
         }} />
     );
 }
 
-export const ListImageBadges = ({ items, name, title, titleColor = 'foreground', height = 40 }: ListImageBadgeProps) => {
+export const ListImageBadges = ({ items, name, title, titleColor = 'foreground', height = 40, backgroundColor = 'background' }: ListImageBadgeProps) => {
     const theme = useContext(ThemeContext);
     return (
         <div className="py-1" style={{
@@ -54,7 +60,13 @@ export const ListImageBadges = ({ items, name, title, titleColor = 'foreground',
             <div>
                 {items.map((item, index) => {
                     return (
-                        <ImageBadge image={item.image} height={height} link={item.link} className={"hover-effect"} key={'home_brand_' + [name, index].join("_")} />
+                        <ImageBadge
+                            image={item.image}
+                            height={height}
+                            link={item.link}
+                            className={"hover-effect"}
+                            backgroundColor={backgroundColor}
+                            key={'home_brand_' + [name, index].join("_")} />
                     );
                 })}
             </div>

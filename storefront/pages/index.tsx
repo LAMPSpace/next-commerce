@@ -4,6 +4,7 @@ import { ThemeContext } from "@/context/ThemeContext";
 import { HomeSettingContext } from "@/context/HomeSettingContext";
 import { Banner, Content } from "@/modules/home/components";
 import { getColorCode } from "@/modules/common/services/ColorSchemeService";
+import { Loading } from "@/common/components/common";
 
 
 const Home: NextPage = (props) => {
@@ -12,6 +13,7 @@ const Home: NextPage = (props) => {
 
   return (
     <>
+      {!homeSetting && <Loading />}
       {homeSetting &&
         <>
           {!homeSetting.background_image &&
