@@ -21,13 +21,13 @@ class HomeSettingController extends Controller
 
     public function index(Request $request)
     {
-        $homeSettings = $this->service->list($request);
+        $homeSettings = $this->service->list($request->all());
         return new HomeSettingCollection($homeSettings);
     }
 
     public function store(CreateHomeSettingRequest $request)
     {
-        $homeSetting = $this->service->create($request);
+        $homeSetting = $this->service->create($request->all());
         return new HomeSettingResource($homeSetting);
     }
 
@@ -39,7 +39,7 @@ class HomeSettingController extends Controller
 
     public function update(UpdateHomeSettingRequest $request, string $id)
     {
-        $update = $this->service->update($request, $id);
+        $update = $this->service->update($request->all(), $id);
         return $update;
     }
 

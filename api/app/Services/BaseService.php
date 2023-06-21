@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -18,9 +17,9 @@ abstract class BaseService
         $this->model = $repository->getModel();
     }
 
-    public function list(Request $request): Collection | LengthAwarePaginator
+    public function list(array $params): Collection | LengthAwarePaginator
     {
-        $params = $this->getUrlParams($request);
+        $params = $this->getUrlParams($params);
         return $this->repository->list($params);
     }
 
@@ -29,15 +28,13 @@ abstract class BaseService
         return $this->repository->find($id);
     }
 
-    public function create(Request $request): Model
+    public function create(array $data): Model
     {
-        $data = $request->all();
         return $this->repository->create($data);
     }
 
-    public function update(Request $request, string | int $id): bool
+    public function update(array $data, string | int $id): bool
     {
-        $data = $request->all();
         return $this->repository->update($data, $id);
     }
 
@@ -54,9 +51,8 @@ abstract class BaseService
         return $params;
     }
 
-    public function getUrlParams(Request $request): array
+    public function getUrlParams(array $params): array
     {
-        $params = $request->all();
         $params = $this->getPerPage($params);
         return $params;
     }

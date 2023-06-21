@@ -21,13 +21,13 @@ class BrandController extends Controller
 
     public function index(Request $request)
     {
-        $brands = $this->service->list($request);
+        $brands = $this->service->list($request->all());
         return new BrandCollection($brands);
     }
 
     public function store(CreateBrandRequest $request)
     {
-        $brand = $this->service->create($request);
+        $brand = $this->service->create($request->all());
         return new BrandResource($brand);
     }
 
@@ -39,7 +39,7 @@ class BrandController extends Controller
 
     public function update(UpdateBrandRequest $request, string $id)
     {
-        $update = $this->service->update($request, $id);
+        $update = $this->service->update($request->all(), $id);
         return $update;
     }
 

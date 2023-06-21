@@ -2,8 +2,6 @@
 
 namespace App\Services;
 
-use Illuminate\Http\Request;
-
 abstract class SortFilterSearchService extends BaseService
 {
     public function getSortFields(string $requestSort): array
@@ -99,9 +97,8 @@ abstract class SortFilterSearchService extends BaseService
         return $params;
     }
 
-    public function getUrlParams(Request $request): array
+    public function getUrlParams(array $params): array
     {
-        $params = $request->all();
         $params = $this->getSortData($params);
         $params = $this->getFilterData($params);
         $params = $this->getSearchData($params);

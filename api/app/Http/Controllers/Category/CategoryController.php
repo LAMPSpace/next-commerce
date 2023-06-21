@@ -21,13 +21,13 @@ class CategoryController extends Controller
 
     public function index(Request $request)
     {
-        $categories = $this->service->list($request);
+        $categories = $this->service->list($request->all());
         return new CategoryCollection($categories);
     }
 
     public function store(CreateCategoryRequest $request)
     {
-        $category = $this->service->create($request);
+        $category = $this->service->create($request->all());
         return new CategoryResource($category);
     }
 
@@ -39,7 +39,7 @@ class CategoryController extends Controller
 
     public function update(UpdateCategoryRequest $request, string $id)
     {
-        $update = $this->service->update($request, $id);
+        $update = $this->service->update($request->all(), $id);
         return $update;
     }
 
