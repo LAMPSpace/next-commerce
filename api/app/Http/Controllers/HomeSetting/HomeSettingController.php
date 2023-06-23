@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\HomeSetting;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\HomeSettingCollection;
+use App\Http\Requests\HomeSetting\CreateHomeSettingRequest;
+use App\Http\Requests\HomeSetting\UpdateHomeSettingRequest;
+use App\Http\Resources\HomeSetting\HomeSettingCollection;
+use App\Http\Resources\HomeSetting\HomeSettingResource;
 use App\Interfaces\Service\HomeSettingServiceInterface;
 use Illuminate\Http\Request;
 
@@ -15,44 +18,40 @@ class HomeSettingController extends Controller
     {
         $this->service = $service;
     }
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index(Request $request)
     {
-        $homeSettings = $this->service->list($request);
+        $homeSettings = $this->service->list($request->all());
         return new HomeSettingCollection($homeSettings);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(CreateHomeSettingRequest $request)
     {
-        //
+        $homeSetting = $this->service->create($request->all());
+        return new HomeSettingResource($homeSetting);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
+        $homeSetting = $this->service->find($id);
+        return new HomeSettingResource($homeSetting);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(UpdateHomeSettingRequest $request, string $id)
     {
-        //
+        $update = $this->service->update($request->all(), $id);
+        return $update;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        $delete = $this->service->delete($id);
+        return $delete;
+    }
+
+    public function current()
+    {
+        $homeSetting = $this->service->current();
+        return new HomeSettingResource($homeSetting);
     }
 }

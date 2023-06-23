@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('discounts', function (Blueprint $table) {
-            $table->uuid('uuid')->primary();
+            $table->id();
             $table->string('name', 128)->unique();
             $table->dateTime('start_date');
             $table->dateTime('end_date')->nullable();

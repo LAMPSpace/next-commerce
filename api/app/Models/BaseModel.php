@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class BaseModel extends Model
 {
-    protected $defaultSortBy = 'uuid';
+    protected $defaultSortBy = 'id';
 
-    protected $secondarySortBy = 'uuid';
+    protected $secondarySortBy = 'id';
 
-    protected $sortFields = ['uuid'];
+    protected $sortFields = ['id'];
 
     protected $filterFields = [];
 

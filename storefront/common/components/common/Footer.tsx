@@ -1,24 +1,14 @@
 import Link from "next/link";
-import { Dispatch, SetStateAction, useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { ThemeContext } from "@/context/ThemeContext";
-import IconTooltip from "./IconTooltip";
 import BrandIcon from "./BrandIcon";
 import { DynamicIcon } from "@/modules/common/components";
 import { appName } from "@/common/constants/common";
 import { getColorCode } from "@/modules/common/services/ColorSchemeService";
 
-type Props = {
-    setTheme: Dispatch<SetStateAction<string>>
-}
-
-const Footer = ({ setTheme }: Props) => {
+const Footer = () => {
     const theme = useContext(ThemeContext);
-    const [oppositeTheme, setOppositeTheme] = useState<string>(theme);
 
-    useEffect(() => {
-        let newTheme = theme === 'light' ? 'Dark' : 'Light';
-        setOppositeTheme(newTheme)
-    }, [theme]);
     return (
         <div className="footer" style={{
             backgroundColor: getColorCode('black', theme),
@@ -57,11 +47,6 @@ const Footer = ({ setTheme }: Props) => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="flex justify-end px-5 pb-2">
-                <button onClick={() => setTheme(oppositeTheme.toLowerCase())}>
-                    <IconTooltip content={oppositeTheme} iconName={oppositeTheme.toLowerCase()} placement="top" color={'white'} iconSize={30} />
-                </button>
             </div>
         </div>
     );

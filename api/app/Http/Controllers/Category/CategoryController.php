@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Category;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CategoryCollection;
+use App\Http\Requests\Category\CreateCategoryRequest;
+use App\Http\Requests\Category\UpdateCategoryRequest;
+use App\Http\Resources\Category\CategoryCollection;
+use App\Http\Resources\Category\CategoryResource;
 use App\Interfaces\Service\CategoryServiceInterface;
 use Illuminate\Http\Request;
 
@@ -15,44 +18,34 @@ class CategoryController extends Controller
     {
         $this->service = $service;
     }
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index(Request $request)
     {
-        $categories = $this->service->list($request);
+        $categories = $this->service->list($request->all());
         return new CategoryCollection($categories);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function store(CreateCategoryRequest $request)
     {
-        //
+        $category = $this->service->create($request->all());
+        return new CategoryResource($category);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
-        //
+        $category = $this->service->find($id);
+        return new CategoryResource($category);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(UpdateCategoryRequest $request, string $id)
     {
-        //
+        $update = $this->service->update($request->all(), $id);
+        return $update;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        $delete = $this->service->delete($id);
+        return $delete;
     }
 }

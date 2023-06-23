@@ -18,7 +18,7 @@ const ProductCard = ({ item, height = 500 }: ProductCardModel) => {
                 backgroundColor: 'transparent',
                 color: getColorCode('foreground', theme),
             }}>
-            <Link href={`/products/${item.uuid}`}
+            <Link href={`/products/${item.id}`}
                 style={{
                     borderRadius: 8,
                 }}>
@@ -59,7 +59,7 @@ const ProductCard = ({ item, height = 500 }: ProductCardModel) => {
                         </div>
                         <div className="flex items-center justify-center product-card-rating">
                             <div className="mr-auto">
-                                <Rating value={item.rating_star} name={item.uuid} size={30} disabled />
+                                <Rating value={item.rating_star} name={(item.id).toString()} size={30} disabled />
                             </div>
                         </div>
                         <div className="flex items-center justify-center product-card-rating">

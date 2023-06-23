@@ -2,14 +2,11 @@
 
 namespace App\Models;
 
-use App\Traits\UUID;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends BaseModel
 {
-    use HasFactory, UUID;
-
-    protected $primaryKey = 'uuid';
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +14,7 @@ class Category extends BaseModel
      * @var array<int, string>
      */
     protected $fillable = [
-        'parent_uuid',
+        'parent_id',
         'name',
         'icon',
         'description',
@@ -26,7 +23,7 @@ class Category extends BaseModel
 
     protected $sortFields = [
         'name',
-        'uuid',
+        'id',
         'description',
         'display'
     ];
@@ -34,7 +31,7 @@ class Category extends BaseModel
     protected $filterFields = [
         'level',
         'name',
-        'parent_uuid'
+        'parent_id'
     ];
 
     protected $searchFields = [
@@ -62,13 +59,13 @@ class Category extends BaseModel
 
     public function childrenCategories()
     {
-        return $this->hasMany(Category::class, 'parent_uuid');
+        return $this->hasMany(Category::class, 'parent_id');
     }
 
     public function allChildren()
     {
         return $this->childrenCategories()->with(['allChildren' => function ($query) {
-            return $query->orderBy('uuid');
+            return $query->orderBy('id');
         }]);
     }
 }

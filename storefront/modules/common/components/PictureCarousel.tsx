@@ -3,7 +3,7 @@ import { Carousel } from "react-bootstrap";
 import { ImageWrapper } from "@/common/components/common";
 import { PictureCarouselModel } from "../models/PictureCarousel";
 
-const PictureCarousel = ({ pictures, name, height, width, showTitle = false }: PictureCarouselModel) => {
+const PictureCarousel = ({ pictures, name, height, width = '100%', showTitle = false }: PictureCarouselModel) => {
     return (
         <Carousel className="w-100" style={{ borderRadius: 8, background: 'none' }}>
             {pictures.map((picture, index) => {
@@ -13,7 +13,7 @@ const PictureCarousel = ({ pictures, name, height, width, showTitle = false }: P
                         <div className="flex items-center justify-center"
                             style={{ height: height }}>
                             {picture.link &&
-                                <Link href={picture.link}>
+                                <Link href={picture.link} className="w-full">
                                     <ImageWrapper
                                         image={picture.image}
                                         style={{ height: height, width: width, borderRadius: 8 }} />
