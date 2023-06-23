@@ -13,5 +13,19 @@ chmod -R ugo+rw /.composer
 if [ $# -gt 0 ]; then
     exec gosu $WWWUSER "$@"
 else
+    /usr/bin/composer install --no-interaction --no-scripts --working-dir=/var/www/html
+
+    composer_exit_code=$?
+    if [ $composer_exit_code -eq 0 ]; then
+        echo "Composer install completed successfully."
+
+    else
+        echo "Composer install failed. Exit code: $composer_exit_code"
+        exit $composer_exit_code
+    fi
+
+    /usr/bin/php /var/www/html/artisan migrate --force
+    /usr/bin/php /var/www/html/artisan db:seed --force
+
     exec /usr/bin/supervisord -c /etc/supervisor/conf.d/supervisord.conf
 fi

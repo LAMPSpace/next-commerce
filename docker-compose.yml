@@ -1,11 +1,24 @@
 version: '3.7'
 
 services:
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - next-commerce-network
+    depends_on:
+        - api
+        - storefront
+        - backoffice
+        - postgres
   api:
     image: ghcr.io/lampspace/next-commerce-api:latest
     container_name: api-service
-    ports:
-      - "8000:80"
     volumes:
       - ./api:/var/www/html
     networks:
@@ -15,14 +28,11 @@ services:
   storefront:
     image: ghcr.io/lampspace/next-commerce-storefront:latest
     container_name: storefront-service
-    ports:
-      - "5000:3000"
   backoffice:
     image: ghcr.io/lampspace/next-commerce-backoffice:latest
     container_name: backoffice-service
-    ports:
-      - "5001:3000"
   postgres:
+    container_name: postgres
     image: debezium/postgres:15-alpine
     ports:
       - "5432:5432"

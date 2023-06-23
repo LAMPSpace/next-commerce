@@ -1,0 +1,26 @@
+server {
+    listen 80;
+    server_name api-nextcommerce.lamp;
+
+    location / {
+        proxy_pass http://api:80;
+    }
+}
+
+server {
+    listen 80;
+    server_name storefront.lamp;
+
+    location / {
+        proxy_pass http://storefront:3000;
+    }
+}
+
+server {
+    listen 80;
+    server_name backoffice.lamp;
+
+    location / {
+        proxy_pass http://backoffice:3000;
+    }
+}

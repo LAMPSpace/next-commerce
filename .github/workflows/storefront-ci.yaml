@@ -2,7 +2,7 @@ name: Storefront CI
 
 on:
   push:
-    branches: [master]
+    branches: [develop]
     paths:
       - 'storefront/**'
       - '.github/workflows/storefront-ci.yaml'

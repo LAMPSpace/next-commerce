@@ -1,24 +1,37 @@
-set -e
+#!/bin/bash
 
-# API Service
-cd api
-cp .env.example .env
-composer install
+if [[ $# -eq 0 ]] ; then
+    echo 'Please provide the parameters for the script | local or develop'
+    exit 1
+fi
 
-# Backoffice Service
-cd ../backoffice
-cp .env.example .env
+$task=$1
 
-# Storefront Service
-cd ../storefront
-cp .env.example .env
+if [[ $task == "develop"]]; then
+    echo "Performing develop script for the development environment."
 
-# Run docker-compose
-cd ..
-docker-compose up -d
+    # Copy the nginx.conf.prod to nginx.conf
+    cp nginx/nginx.conf.prod nginx/nginx.conf
 
-# Run migrations
-docker exec api-service php artisan migrate
+    # Copy the .env.prod to .env
+    cp api/.env.prod api/.env
+    cp storefront/.env.prod storefront/.env
+    cp backoffice/.env.prod backoffice/.env
 
-# Run seeds
-docker exec api-service php artisan db:seed
+elif [[ $task == "local"]]; then
+    echo "Performing local script for the local environment."
+
+    # Copy the nginx.conf.example to nginx.conf
+    cp nginx/nginx.conf.example nginx/nginx.conf
+
+    # Copy the .env.example to .env
+    cp api/.env.example api/.env
+    cp storefront/.env.example storefront/.env
+    cp backoffice/.env.example backoffice/.env
+
+else
+    echo "Please provide the correct parameters for the script | local or develop"
+    exit 1
+fi
+
+echo "Task $task completed."

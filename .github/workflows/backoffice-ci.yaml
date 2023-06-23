@@ -2,7 +2,7 @@ name: Backoffice CI
 
 on:
   push:
-    branches: [master]
+    branches: [develop]
     paths:
       - 'backoffice/**'
       - '.github/workflows/backoffice-ci.yaml'

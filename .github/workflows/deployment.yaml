@@ -1,0 +1,26 @@
+name: Deployment
+
+on:
+    push:
+        branches: ['master']
+
+jobs:
+    deployment:
+        name: Deployment
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Deploy SSH
+              uses: appleboy/ssh-action@master
+              with:
+                host: ${{ secrets.SSH_HOST }}
+                username: ${{ secrets.SSH_USERNAME }}
+                password: ${{ secrets.SSH_PASSWORD }}
+                port: ${{ secrets.SSH_PORT }}
+                script: |
+                    cd /home/next-commerce
+                    git pull
+                    chmod +x setup.sh
+                    ./setup.sh develop
+                    docker-compose -f docker-compose.prod.yml up -d
