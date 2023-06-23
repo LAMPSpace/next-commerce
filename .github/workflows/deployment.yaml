@@ -22,5 +22,5 @@ jobs:
                     cd /home/next-commerce
                     git pull
                     chmod +x setup.sh
-                    ./setup.sh develop
+                    bash setup.sh develop
                     docker-compose -f docker-compose.prod.yml up -d
