@@ -17,8 +17,10 @@ services:
         - backoffice
         - postgres
   api:
-    image: ghcr.io/lampspace/next-commerce-api:latest
     container_name: api-service
+    build:
+      context: ./api
+      dockerfile: Dockerfile
     volumes:
       - ./api:/var/www/html
     networks:
@@ -26,11 +28,19 @@ services:
     environment:
       WWWUSER: '${WWWUSER:-1000}'
   storefront:
-    image: ghcr.io/lampspace/next-commerce-storefront:latest
     container_name: storefront-service
+    build:
+      context: ./storefront
+      dockerfile: Dockerfile
+    networks:
+      - next-commerce-network
   backoffice:
-    image: ghcr.io/lampspace/next-commerce-backoffice:latest
     container_name: backoffice-service
+    build:
+      context: ./backoffice
+      dockerfile: Dockerfile
+    networks:
+      - next-commerce-network
   postgres:
     container_name: postgres
     image: debezium/postgres:15-alpine
